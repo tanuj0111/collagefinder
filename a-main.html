@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EduCourses Landing Page</title>
+    <!-- Locally store -->
+    <link href="tailwaind.css" rel="stylesheet">
+    <!-- tailwaind cdn file locally store -->
+
+    <script src="Tcdn.css"></script>
+
+    <!-- Google Fonts: Poppins -->
+    <link href="FontFamily.ttf" rel="stylesheet" />
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="fontaweome.css" />
+
+    <style>
+        :root {
+            --rich-black: #071B1A;
+            --peach: #F2A87E;
+            --terracotta: #BF7651;
+            --charcoal-gray: #2A3537;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: white;
+            color: var(--charcoal-gray);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .fade-in {
+            animation: fadeIn 2s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-images img {
+            width: 100%;
+            flex-shrink: 0;
+        }
+
+        .solid-text {
+            color: #ffffff;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+        }
+    </style>
+</head>
+
+<body class="text-[var(--charcoal-gray)]">
+
+    <!-- Navbar -->
+    <nav class="bg-[#4d2c5e] p-4 text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-[white]">EduGuide</h1>
+
+            <div class="space-x-6">
+                <a href="#home" class="hover:text-[#D4A7D3] transition">Home</a>
+                <a href="#courses" class="hover:text-[#D4A7D3] transition">Courses</a>
+                <a href="#contact" class="hover:text-[#D4A7D3] transition">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Landing Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center text-white overflow-hidden">
+        <video autoplay muted loop class="absolute top-0 left-0 w-full h-full object-cover z-0">
+            <source src="Presentation1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="text-center z-10 relative px-4">
+            <h2 class="text-6xl md:text-8xl font-extrabold mb-6"
+                style="text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7); color:aliceblue;">
+                Welcome to EduGuide
+            </h2>
+            <p class="text-2xl md:text-4xl font-semibold" style="text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);">
+                Empower your future with quality education
+            </p>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="py-20 min-h-[750px]" style="background-color:white;">
+
+        <div class="w-full px-6 mx-auto max-w-[1600px]">
+            <h2 class="text-4xl font-bold text-center mb-12 text-[#4d2c5e]"
+                style="font-family: centaur;font-size: 7vh;">Our Courses</h2>
+
+            <div class="relative">
+                <!-- Scroll Buttons -->
+                <button onclick="scrollCourses(-1)"
+                    class="absolute left-0 top-1/2 -translate-y-1/2 bg-[ rgb(8, 24, 43)] text-white p-3 rounded-full shadow-lg z-10 text-2xl">
+                    &#10094;
+                </button>
+                <button onclick="scrollCourses(1)"
+                    class="absolute right-0 top-1/2 -translate-y-1/2 bg-[ rgb(8, 24, 43)] text-white p-3 rounded-full shadow-lg z-10 text-2xl">
+                    &#10095;
+                </button>.
+
+                <!-- Scrollable Container -->
+                <div id="courseScroll" class="flex space-x-8 overflow-hidden scroll-smooth px-8 py-4 no-scrollbar">
+                    <a href="m.techoverview.html">
+                        <div class="min-w-[400px] p-8 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:scale-105 cursor-pointer"
+                            style="background-image: linear-gradient(to right, #3c1053,#ad5389, #3c1053);">
+                            <h3 class="text-2xl font-semibold mb-3" style="color: white">M.Tech</h3>
+                            <p class="text-lg" style="color: white">Duration: 2 years</p>
+                            <p class="text-lg" style="color: white">Fee: ₹2,00,000/year</p>
+                            <p class="text-lg" style="color: white">City: Noida</p>
+                        </div>
+                    </a>
+                    <a href="btechOverview.html">
+
+                        <div class="min-w-[400px] p-8 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:scale-105"
+                            style="background-image: linear-gradient(to right, #3c1053,#ad5389, #3c1053);">
+                            <h3 class="text-2xl font-semibold mb-3" style="color: white">B.Tech</h3>
+                            <p class="text-lg" style="color: white">Duration: 4 years</p>
+                            <p class="text-lg" style="color: white">Fee: ₹1,80,000/year</p>
+                            <p class="text-lg" style="color: white">City: Ghaziabad</p>
+                        </div>
+                    </a>
+
+
+                    <a href="bcaOverview.html">
+
+                        <div class="min-w-[400px] p-8 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:scale-105"
+                            style="background-image: linear-gradient(to right, #3c1053,#ad5389, #3c1053);">
+                            <h3 class="text-2xl font-semibold mb-3" style="color: white">BCA</h3>
+                            <p class="text-lg" style="color: white">Duration: 3 years</p>
+                            <p class="text-lg" style="color: white">Fee: ₹1,50,000/year</p>
+                            <p class="text-lg" style="color: white">City: Faridabad</p>
+                        </div>
+                    </a>
+                    <a href="bbaOverview.html">
+                        <div class="min-w-[400px] p-8 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:scale-105 text-white"
+                            style="background-image: linear-gradient(to right, #3c1053,#ad5389, #3c1053);">
+
+
+                            <h3 class="text-2xl font-semibold mb-3" style="color: white;">BBA</h3>
+                            <p class="text-lg" style="color: white;">Duration: 3 years</p>
+                            <p class="text-lg" style="color: white;">Fee: ₹2,00,000/year</p>
+                            <p class="text-lg" style="color: white;">City: Noida</p>
+                        </div>
+                    </a>
+                    <a href="mbaOverview.html">
+
+                        <div class="min-w-[400px] p-8 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:scale-105"
+                            style="background-image: linear-gradient(to right, #3c1053,#ad5389, #3c1053);">
+                            <h3 class="text-2xl font-semibold mb-3" style="color: white">MBA</h3>
+                            <p class="text-lg" style="color: white">Duration: 2 years</p>
+                            <p class="text-lg" style="color: white">Fee: ₹1,50,000/year</p>
+                            <p class="text-lg" style="color: white">City: Faridabad</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Carousel Section -->
+        <section class="py-10" style="background-color:white;">
+            <div class="container mx-auto">
+
+                <div class="relative w-full max-w-[1600px] mx-auto overflow-hidden h-[600px] r">
+                    <div class="carousel-images h-full" id="carousel">
+                        <img class="object-cover h-full w-full" src="comparepage.png" alt="Amusement Carousel Park">
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Still Confused Section with Image -->
+        <section class="py-16 bg-[#f6f1ff]">
+            <div class="container mx-auto flex flex-col md:flex-row items-center justify-center gap-10">
+
+                <!-- Illustration -->
+                <div class="w-full md:w-1/3 flex justify-center">
+                    <img src="thinking.png" alt="Confused Illustration" class="w-64 h-auto">
+                </div>
+
+                <!-- Text Content -->
+                <div class="w-full md:w-2/3 text-center md:text-left">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#4d2c5e] mb-4">Still Confused?</h2>
+                    <p class="text-lg md:text-xl text-[#2A3537] mb-6">
+                        Don’t worry! We’re here to guide you. Explore more to find the perfect course for your career.
+                    </p>
+                    <a href="helppage.html"
+                        class="inline-block bg-[#4d2c5e] text-white text-lg px-8 py-3 rounded-full hover:bg-[#6e3d83] transition">
+                        Get Personalized Help
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- JavaScript to handle scroll -->
+        <script>
+            function scrollCourses(direction) {
+                const container = document.getElementById("courseScroll");
+                const scrollAmount = 420; // adjust as needed
+                container.scrollBy({
+                    left: direction * scrollAmount,
+                    behavior: 'smooth'
+                });
+            }
+        </script>
+
+        <!-- CSS to hide scrollbar -->
+        <style>
+            .no-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+
+            .no-scrollbar {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        </style>
+
+
+
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16" style="background:white;">
+            <div class="container mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-8"
+                    style="color: #3c1053; font-family:centaur;font-size: 7vh;">Contact Us</h2>
+
+                <div class="grid md:grid-cols-2 gap-10 items-start relative">
+
+                    <!-- Left Column: Form + Thank You card -->
+                    <div class="relative">
+                        <!-- Contact Form -->
+                        <form id="contactForm" class="space-y-4 bg-white p-6 rounded-xl shadow-md">
+                            <div>
+                                <label class="block text-sm font-medium">Name</label>
+                                <input type="text" name="name" required
+                                    class="w-full border border-gray-300 rounded-lg px-3 py-2" />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium">Phone Number</label>
+                                <input type="tel" name="phone" required pattern="[0-9]{10}"
+                                    class="w-full border border-gray-300 rounded-lg px-3 py-2" />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium">Email</label>
+                                <input type="email" name="email" required
+                                    class="w-full border border-gray-300 rounded-lg px-3 py-2" />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium">Interested Course</label>
+                                <select name="course" required
+                                    class="w-full border border-gray-300 rounded-lg px-3 py-2">
+                                    <option value="">Select a course</option>
+                                    <option value="btech">B.Tech</option>
+                                    <option value="mtech">M.Tech</option>
+                                    <option value="bca">BCA</option>
+                                    <option value="mca">MCA</option>
+                                </select>
+                            </div>
+                            <button type="submit"
+                                class="bg-[#3c1053] text-white px-4 py-2 rounded-lg hover:bg-yellow-500 transition">Save</button>
+                        </form>
+
+                        <!-- Thank You Card (hidden initially) -->
+                        <div id="thankYouCard" class="hidden bg-white p-6 rounded-xl shadow-md text-center mt-6">
+                            <h3 class="text-2xl font-bold  mb-2" style="color: #3c1053;">Thank You!</h3>
+                            <p class="text-lg" style="color: #3c1053;">We’ve received your details.</p>
+                            <p class="text-md mt-2" style="color: #3c1053;">Keep learning and growing with EduGuide!</p>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Image + Text -->
+                    <div class="flex flex-col items-center justify-between h-full">
+                        <img src="contactus.png" alt="Confused cartoon" class="w-[350px] h-auto mb-6">
+                        <div class="text-center fade-in mt-auto">
+                            <h3 class="text-xl font-semibold mb-2" style="color:#3c1053;">Get in Touch!</h3>
+                            <p style="color:#3c1053;">We're happy to help you choose the best course for your future.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gradient-to-r from-[#3c1053] to-[#ad5389] text-white p-5">
+            <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-4 gap-6">
+                <div class="col-span-full md:col-span-1">
+                    <h4 class="text-xl font-semibold mb-2 text-white text-shadow-md playfair">CollegeFinder</h4>
+                    <p class="text-sm text-gray-200 leading-relaxed">Empowering your educational journey with trusted
+                        resources, expert guidance, and a seamless path to your dream college.</p>
+                    <div class="flex space-x-4 mt-6">
+                        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram"
+                                class="w-6 h-6"></a>
+                        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/5969/5969020.png"
+                                alt="X (formerly Twitter)" class="w-6 h-6"></a>
+                        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733603.png" alt="YouTube"
+                                class="w-6 h-6"></a>
+                        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"
+                                class="w-6 h-6"></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-xl font-extrabold mb-2 text-white text-shadow-md playfair">Quick Links</h4>
+                    <ul class="space-y-1 text-sm">
+                        <li><a href="index.html"
+                                class="hover:underline hover:text-purple-200 transition-colors duration-200">Home</a>
+                        </li>
+                        <li><a href="search.html"
+                                class="hover:underline hover:text-purple-200 transition-colors duration-200">Search
+                                Colleges</a></li>
+                        <li><a href="details.html"
+                                class="hover:underline hover:text-purple-200 transition-colors duration-200">Top
+                                Courses</a></li>
+                        <li><a href="about.html"
+                                class="hover:underline hover:text-purple-200 transition-colors duration-200">About
+                                Us</a></li>
+                        <li><a href="contact.html"
+                                class="hover:underline hover:text-purple-200 transition-colors duration-200">Contact
+                                Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-extrabold mb-2 text-white text-shadow-md playfair">Popular Courses</h4>
+                    <ul class="space-y-1 text-sm">
+                        <li><a href="details.html"
+                                class="hover:underline hover:text-purple-200 transition-colors duration-200">B.Tech
+                                (Engineering)</a></li>
+                        <li><a href="details.html"
+                                class="hover:underline hover:text-purple-200 transition-colors duration-200">MBBS
+                                (Medical)</a></li>
+                        <li><a href="details.html"
+                                class="hover:underline hover:text-purple-200 transition-colors duration-200">BBA / MBA
+                                (Management)</a></li>
+                        <li><a href="details.html"
+                                class="hover:underline hover:text-purple-200 transition-colors duration-200">LLB / BA
+                                LLB (Law)</a></li>
+                        <li><a href="details.html"
+                                class="hover:underline hover:text-purple-200 transition-colors duration-200">B.Sc / M.Sc
+                                (Science)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-extrabold mb-2 text-white text-shadow-md playfair">Contact Info</h4>
+                    <ul class="space-y-1 text-sm">
+                        <li class="flex items-center"><img src="call.png" alt="Phone" class="w-5 h-5 mr-3 "><a
+                                href="tel:+1234567890" class="hover:underline">+91 123 456 7890</a></li>
+                        <li class="flex items-center"><img src="email.png" alt="Email" class="w-5 h-5 mr-3  "><a
+                                href="mailto:info@collegefinder.in" class="hover:underline">info@collegefinder.in</a>
+                        </li>
+                        <li class="flex items-start"><img src="location.png" alt="Address"
+                                class="w-5 h-5 mr-3 mt-1"><span>123, Education Lane, Knowledge City, <br>New Delhi,
+                                India</span></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="text-center text-sm text-gray-200 mt-4">&copy; 2025 CollegeFinder. All rights reserved.</p>
+        </footer>
+        <script>
+            const contactForm = document.getElementById("contactForm");
+            const thankYouCard = document.getElementById("thankYouCard");
+
+            contactForm.addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                const formData = {
+                    name: contactForm.name.value,
+                    phone: contactForm.phone.value,
+                    email: contactForm.email.value,
+                    course: contactForm.course.value
+                };
+
+                // Save to localStorage
+                let submissions = JSON.parse(localStorage.getItem("contactSubmissions")) || [];
+                submissions.push(formData);
+                localStorage.setItem("contactSubmissions", JSON.stringify(submissions));
+
+                // Hide form and show thank you message
+                contactForm.classList.add("hidden");
+                thankYouCard.classList.remove("hidden");
+
+                // Optional fade-in
+                setTimeout(() => {
+                    thankYouCard.classList.add("opacity-100");
+                }, 10);
+            });
+        </script>
+
+        <script>
+            document.getElementById('contactForm').addEventListener('submit', function (e) {
+                e.preventDefault(); // Prevent page reload
+
+                // Hide the form
+                document.getElementById('contactForm').classList.add('hidden');
+
+                // Show thank you card
+                const thankYouCard = document.getElementById('thankYouCard');
+                thankYouCard.classList.remove('hidden');
+                thankYouCard.classList.add('opacity-100');
+            });
+        </script>
+
+</body>
+
+</html>

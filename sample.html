@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>B.Tech Colleges - OnetickCourses</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+  #infoContent::-webkit-scrollbar {
+    height: 8px;
+  }
+  #infoContent::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+  #infoContent::-webkit-scrollbar-track {
+    background: #eee;
+  }
+</style>
+
+  <style>
+    .college-card {
+      background-color: white;
+      color: #4d2c5e !important;
+    }
+
+    .py-10,
+    .py-6 {
+      background-color: white;
+    
+    }
+    .info{
+      height: 300px; /* or any height */
+  overflow-y: auto;
+    }
+    .info::-webkit-scrollbar {
+  width: 8px; /* width of the scrollbar */
+}
+.info::-webkit-scrollbar-track {
+  background: #f1f1f1; /* background of the track */
+  border-radius: 4px;
+}
+.info::-webkit-scrollbar-thumb {
+  background: #888; /* color of the thumb */
+  border-radius: 4px;
+}
+.info::-webkit-scrollbar-thumb:hover {
+  background: #555; /* color on hover */
+}
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Navbar -->
+  <nav style="background-color:#4D2C5E;"
+    class="bg-white shadow border-b sticky top-0 z-50 flex items-center justify-between px-4 py-3">
+    <ul class="flex space-x-8 text-sm font-medium">
+      <li><a href="m.techoverview.html" class="text-white">Overview</a></li>
+      <li><a href="mtechSyllabusfinal.html" class="text-white">Syllabus</a></li>
+      <li><a href="mtechcolege.html" class="text-white">M-Tech Colleges</a></li>
+    </ul>
+
+    <!-- Hamburger icon -->
+    <button onclick="toggleSidebar()" class="text-white focus:outline-none">
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Sidebar -->
+  <div id="sidebar"
+    class="fixed top-0 left-0 h-full w-64 bg-white text-white transform -translate-x-full transition-transform duration-300 z-50 shadow-lg">
+    <div class="p-6">
+      <h2 class="text-2xl font-bold mb-6" style="color: #4D2C5E;">Menu</h2>
+      <ul class="space-y-4">
+        <li><a href="a-main.html" class="hover:underline" style="color: #4D2C5E;">Home</a></li>
+        <li><a href="m.techoverview.html" class="hover:underline" style="color: #4D2C5E;">Overview</a></li>
+        <li><a href="mtechSyllabusfinal.html" class="hover:underline" style="color: #4D2C5E;">Syllabus</a></li>
+        <li><a href="mtechcolege.html" class="hover:underline" style="color: #4D2C5E;">M-Tech Colleges</a></li>
+      </ul>
+      <button onclick="toggleSidebar()" class="mt-8 px-4 py-2 bg-pink-500 rounded hover:bg-pink-600 transition"
+        style="background-color: #4D2C5E;">Close</button>
+    </div>
+  </div>
+
+  <!-- JavaScript to toggle sidebar -->
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('-translate-x-full');
+    }
+  </script>
+
+
+  <!-- Filters and College List -->
+  <div class="flex flex-col lg:flex-row">
+
+    <!-- Sidebar Filter Section -->
+    <aside class="w-full md:w-64 bg-white border-r p-4 space-y-6">
+      <h2 class="text-xl font-bold">Filters</h2>
+
+      <!-- Budget Filter -->
+      <div>
+        <h3 class="font-semibold mb-2">Budget (₹)</h3>
+        <input type="range" id="budgetRange" min="50000" max="300000" step="10000" value="150000" class="w-full" />
+        <div class="text-sm text-gray-600 mt-1">Up to ₹<span id="budgetValue">150000</span></div>
+      </div>
+      
+      <!-- Course Duration Filter -->
+      <div>
+        <h3 class="font-semibold mb-2">Course Duration</h3>
+        <div class="space-y-1 text-sm text-gray-700">
+          <label><input type="checkbox" class="durationCheckbox" value="2" /> 2 Years</label><br />
+          <label><input type="checkbox" class="durationCheckbox" value="3" /> 3 Years</label><br />
+          <label><input type="checkbox" class="durationCheckbox" value="4" /> 4 Years</label>
+        </div>
+      </div>
+
+      <!-- City Filter -->
+      <div>
+        <h3 class="font-semibold mb-2">City</h3>
+        <div class="space-y-1 text-sm text-gray-700">
+          <label><input type="checkbox" class="cityCheckbox" value="Noida" /> Noida</label><br />
+          <label><input type="checkbox" class="cityCheckbox" value="Greater Noida" /> Greater Noida</label><br />
+          <label><input type="checkbox" class="cityCheckbox" value="Ghaziabad" /> Ghaziabad</label><br />
+          <label><input type="checkbox" class="cityCheckbox" value="Faridabad" /> Faridabad</label>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Colleges Grid -->
+    <div class="w-full lg:w-3/4 p-4">
+      <h2 class="text-4xl font-bold mb-10 text-center">
+        <span class="text-yellow-400" style="font-family: centaur;">T</span><span class="text-[#150136]"
+          style="font-family: centaur;">op </span>
+        <span class="text-yellow-400 " style="font-family: centaur;">M.</span><span class="text-[#150136]"
+          style="font-family: centaur;">Tech</span>
+        <span class="text-yellow-400" style="font-family: centaur;">Co</span><span class="text-[#150136]"
+          style="font-family: centaur;">lleges </span>
+
+      </h2>
+      <div id="collegeList"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 max-h-[500px] overflow-y-auto">
+
+        <!-- College Cards -->
+
+
+
+        <button onclick="handleCardClick(this)" data-info="College info content here">
+          <div class="college-card p-6 shadow-md" data-city="Noida" data-fee="100000" data-duration="3">
+            <h4 class="text-xl font-bold">ABC Institute of Tech</h4>
+            <img src="download.jpg" alt="img">
+            <p><strong>Description:</strong> Lorem ipsum dolor sit amet...</p>
+            <p><strong>City:</strong> Noida</p>
+            <p><strong>Fee:</strong> ₹1,00,000/year</p>
+            <p><strong>Duration:</strong> 3 Years</p>
+          </div>
+        </button>
+
+        <button onclick="handleCardClick(this)" data-info="College info content here">
+          <div class="college-card p-6 shadow-md" data-city="Noida" data-fee="100000" data-duration="3">
+            <h4 class="text-xl font-bold">ABC Institute of Tech</h4>
+            <img src="download.jpg" alt="img">
+            <p><strong>Description:</strong> Lorem ipsum dolor sit amet...</p>
+            <p><strong>City:</strong> Noida</p>
+            <p><strong>Fee:</strong> ₹1,00,000/year</p>
+            <p><strong>Duration:</strong> 3 Years</p>
+          </div>
+        </button>
+        <button onclick="handleCardClick(this)" data-info="College info content here">
+          <div class="college-card p-6 shadow-md" data-city="Noida" data-fee="100000" data-duration="3">
+            <h4 class="text-xl font-bold">ABC Institute of Tech</h4>
+            <img src="download.jpg" alt="img">
+            <p><strong>Description:</strong> Lorem ipsum dolor sit amet...</p>
+            <p><strong>City:</strong> Noida</p>
+            <p><strong>Fee:</strong> ₹1,00,000/year</p>
+            <p><strong>Duration:</strong> 3 Years</p>
+          </div>
+        </button>
+
+
+        <button onclick="handleCardClick(this)" data-info="College info content here">
+          <div class="college-card p-6 shadow-md" data-city="Ghaziabad" data-fee="150000" data-duration="4">
+            <h4 class="text-xl font-bold">DEF Engineering College</h4>
+            <img src="download.jpg" alt="img">
+            <p><strong>Description:</strong> Lorem ipsum dolor sit amet...</p>
+            <p><strong>City:</strong> Ghaziabad</p>
+            <p><strong>Fee:</strong> ₹1,50,000/year</p>
+            <p><strong>Duration:</strong> 4 Years</p>
+          </div>
+        </button>
+        <button onclick="handleCardClick(this)" data-info="College info content here">
+          <div class="college-card p-6 shadow-md" data-city="Ghaziabad" data-fee="150000" data-duration="4">
+            <h4 class="text-xl font-bold">DEF Engineering College</h4>
+            <img src="download.jpg" alt="img">
+            <p><strong>Description:</strong> Lorem ipsum dolor sit amet...</p>
+            <p><strong>City:</strong> Ghaziabad</p>
+            <p><strong>Fee:</strong> ₹1,50,000/year</p>
+            <p><strong>Duration:</strong> 4 Years</p>
+          </div>
+        </button>
+        <button onclick="handleCardClick(this)" data-info="College info content here">
+          <div class="college-card p-6 shadow-md" data-city="Ghaziabad" data-fee="150000" data-duration="4">
+            <h4 class="text-xl font-bold">DEF Engineering College</h4>
+            <img src="download.jpg" alt="img">
+            <p><strong>Description:</strong> Lorem ipsum dolor sit amet...</p>
+            <p><strong>City:</strong> Ghaziabad</p>
+            <p><strong>Fee:</strong> ₹1,50,000/year</p>
+            <p><strong>Duration:</strong> 4 Years</p>
+          </div>
+        </button>
+
+      </div>
+      <p id="noResultsMessage" class="text-center text-gray-600 text-lg my-4 hidden">
+        Oops! No colleges found matching your criteria.
+      </p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer style="background-color:  #4d2c5e;" class="text-white text-center p-4 mt-10 ">
+    <p>&copy; 2025 OnetickCourses. All rights reserved.</p>
+  </footer>
+
+  <!-- Contact Form Modal -->
+  <div id="contactFormModal" class="fixed inset-0 bg-black bg-opacity-60 hidden justify-center items-center z-50">
+    <div class="bg-white p-6 rounded-xl shadow-xl w-96 space-y-4 relative">
+      <h2 class="text-xl font-bold text-[#4D2C5E]">Contact Form</h2>
+
+      <input type="text" id="userName" placeholder="Your Name" class="w-full p-2 border rounded" />
+
+      <input type="email" id="userEmail" placeholder="Your Email" class="w-full p-2 border rounded"
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" />
+
+      <input type="tel" id="userPhone" placeholder="Your 10-digit Phone Number" class="w-full p-2 border rounded"
+        pattern="[0-9]{10}" maxlength="10" />
+
+      <input type="text" id="userCourse" placeholder="Preferred Course" class="w-full p-2 border rounded" />
+
+      <!-- ✅ Submit Button -->
+      <button onclick="submitForm()" class="bg-[#4D2C5E] text-white px-4 py-2 rounded hover:bg-[#3c234a] w-full">
+        Submit
+      </button>
+
+      <!-- ❌ Close Button -->
+      <button onclick="closeForm()" class="absolute top-2 right-2 text-xl">&times;</button>
+    </div>
+  </div>
+
+  <!-- Info Popup -->
+<div id="infoPopup" class="fixed inset-0 bg-black bg-opacity-60 hidden justify-center items-center z-50">
+  <div id="info" class="bg-white p-6 rounded-xl shadow-xl w-[80vw] h-[50vh] relative overflow-hidden">
+    
+    <!-- Title -->
+    <h2 class="text-2xl font-bold mb-4 text-[#4D2C5E]">College Information</h2>
+    
+    <!-- Scrollable content -->
+    <div id="infoContent" class="overflow-x-auto overflow-y-auto h-full text-gray-700 border p-4 rounded-lg" style="white-space: nowrap;">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ducimus ut sint amet labore eos dicta deleniti eaque eveniet numquam corrupti, neque animi quisquam saepe minima consectetur sit veniam repudiandae.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ducimus ut sint amet labore eos dicta deleniti eaque eveniet numquam corrupti, neque animi quisquam saepe minima consectetur sit veniam repudiandae.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ducimus ut sint amet labore eos dicta deleniti eaque eveniet numquam corrupti, neque animi quisquam saepe minima consectetur sit veniam repudiandae.
+    </div>
+
+    <!-- Close Button -->
+    <button onclick="closeInfo()" class="absolute top-2 right-2 text-xl">&times;</button>
+  </div>
+</div>
+
+
+  <script>
+    function applyFilters() {
+      const maxBudget = parseInt(document.getElementById('budgetRange').value);
+      const selectedDurations = Array.from(document.querySelectorAll('.durationCheckbox:checked')).map(cb => cb.value);
+      const selectedCities = Array.from(document.querySelectorAll('.cityCheckbox:checked')).map(cb => cb.value);
+      const cards = document.querySelectorAll('.college-card');
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const fee = parseInt(card.dataset.fee);
+        const city = card.dataset.city;
+        const duration = card.dataset.duration;
+
+        const matchBudget = fee <= maxBudget;
+        const matchCity = selectedCities.length === 0 || selectedCities.includes(city);
+        const matchDuration = selectedDurations.length === 0 || selectedDurations.includes(duration);
+
+        if (matchBudget && matchCity && matchDuration) {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      document.getElementById('noResultsMessage').classList.toggle('hidden', visibleCount !== 0);
+    }
+
+    // Event Listeners
+    document.getElementById('budgetRange').addEventListener('input', function () {
+      document.getElementById('budgetValue').innerText = this.value;
+      applyFilters();
+    });
+
+    document.querySelectorAll('.durationCheckbox, .cityCheckbox').forEach(cb => {
+      cb.addEventListener('change', applyFilters);
+    });
+    // Initial call
+    applyFilters();
+
+
+
+  </script>
+
+  <script>
+    function applyFilters() {
+      const maxBudget = parseInt(document.getElementById('budgetRange').value);
+      const selectedDurations = Array.from(document.querySelectorAll('.durationCheckbox:checked')).map(cb => cb.value);
+      const selectedCities = Array.from(document.querySelectorAll('.cityCheckbox:checked')).map(cb => cb.value);
+      const cards = document.querySelectorAll('.college-card');
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const fee = parseInt(card.dataset.fee);
+        const city = card.dataset.city;
+        const duration = card.dataset.duration;
+
+        const matchBudget = fee <= maxBudget;
+        const matchCity = selectedCities.length === 0 || selectedCities.includes(city);
+        const matchDuration = selectedDurations.length === 0 || selectedDurations.includes(duration);
+
+        if (matchBudget && matchCity && matchDuration) {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      document.getElementById('noResultsMessage').classList.toggle('hidden', visibleCount !== 0);
+    }
+
+    document.getElementById('budgetRange').addEventListener('input', function () {
+      document.getElementById('budgetValue').innerText = this.value;
+      applyFilters();
+    });
+
+    document.querySelectorAll('.durationCheckbox, .cityCheckbox').forEach(cb => {
+      cb.addEventListener('change', applyFilters);
+    });
+
+    // Contact form and info popup
+    let formFilled = false;
+    let lastClickedInfo = ""; // Store the info for use after form submission
+
+    function handleCardClick(button) {
+      const info = button.getAttribute("data-info");
+      if (!formFilled) {
+        lastClickedInfo = info; // Save for later use
+        openForm();
+      } else {
+        openInfo(info);
+      }
+    }
+
+    function openForm() {
+      document.getElementById("contactFormModal").classList.remove("hidden");
+      document.getElementById("contactFormModal").classList.add("flex");
+    }
+
+    function closeForm() {
+      document.getElementById("contactFormModal").classList.remove("flex");
+      document.getElementById("contactFormModal").classList.add("hidden");
+    }
+
+    function submitForm() {
+      const name = document.getElementById("userName").value.trim();
+      const email = document.getElementById("userEmail").value.trim();
+      const phone = document.getElementById("userPhone").value.trim();
+      const course = document.getElementById("userCourse").value.trim();
+
+      // Simple validation
+      if (!name || !email || !phone || !course) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      if (!/^[0-9]{10}$/.test(phone)) {
+        alert("Enter a valid 10-digit phone number.");
+        return;
+      }
+
+      if (!/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/.test(email)) {
+        alert("Enter a valid email address.");
+        return;
+      }
+
+      // Mark form as filled
+      formFilled = true;
+      closeForm();
+
+      // Show confirmation
+      alert("Thanks for submitting your details!");
+
+      // Open college info popup after form is filled
+      openInfo(lastClickedInfo);
+    }
+
+    function openInfo(info) {
+      document.getElementById("infoContent").innerText = info;
+      document.getElementById("infoPopup").classList.remove("hidden");
+      document.getElementById("infoPopup").classList.add("flex");
+    }
+
+    function closeInfo() {
+      document.getElementById("infoPopup").classList.remove("flex");
+      document.getElementById("infoPopup").classList.add("hidden");
+    }
+  </script>
+
+</body>
+
+</html>

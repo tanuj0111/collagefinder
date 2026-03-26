@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BCA Syllabus - OnetickCourses</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body style="background-color:white;" class="bg-gray-100 text-gray-800">
+
+    <!-- Navbar -->
+    <nav style="background-color:#4D2C5E;"
+        class="bg-white shadow border-b sticky top-0 z-50 flex items-center justify-between px-4 py-3">
+        <ul class="flex space-x-8 text-sm font-medium">
+            <li><a href="bcaOverview.html" class="text-white">Overview</a></li>
+            <li><a href="bcaSyllabus.html" class="text-white">Syllabus</a></li>
+            <li><a href="bcacolege.html" class="text-white">BCA Colleges</a></li>
+        </ul>
+
+        <!-- Hamburger icon -->
+        <button onclick="toggleSidebar()" class="text-white focus:outline-none">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                </path>
+            </svg>
+        </button>
+    </nav>
+
+    <!-- Sidebar -->
+    <div id="sidebar"
+        class="fixed top-0 left-0 h-full w-64 bg-white text-white transform -translate-x-full transition-transform duration-300 z-50 shadow-lg">
+        <div class="p-6">
+            <h2 class="text-2xl font-bold mb-6" style="color: #4D2C5E;">Menu</h2>
+            <ul class="space-y-4">
+                <li><a href="a-main.html" class="hover:underline" style="color: #4D2C5E;">Home</a></li>
+                <li><a href="bcaOverview.html" class="hover:underline" style="color: #4D2C5E;">Overview</a></li>
+                <li><a href="bcaSyllabus.html" class="hover:underline" style="color: #4D2C5E;">Syllabus</a></li>
+                <li><a href="bcacolege.html" class="hover:underline" style="color: #4D2C5E;">BCA Colleges</a></li>
+            </ul>
+            <button onclick="toggleSidebar()" class="mt-8 px-4 py-2 bg-pink-500 rounded hover:bg-pink-600 transition"
+                style="background-color: #4D2C5E;">Close</button>
+        </div>
+    </div>
+
+    <!-- JavaScript to toggle sidebar -->
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('-translate-x-full');
+        }
+    </script>
+
+    <!-- Syllabus Section -->
+    <section style="background-color:white;" class="py-12 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold mb-10 text-center">
+                <span style="color:#FFC90E; font-family: centaur; font-size: 7vh;">BCA</span>
+                <span style="color:#4D2C5E; font-family: centaur; font-size: 7vh;"> Stream-</span>
+                <span style="color:#FFC90E; font-family: centaur; font-size: 7vh;">Wise </span>
+                <span style="color:#4D2C5E; font-family: centaur; font-size: 7vh;">Syllabus</span>
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <!-- Semester 1 -->
+                <div class="relative h-64">
+                    <img src="compare.png" alt="Semester 1"
+                        class="absolute inset-0 w-full h-full object-cover rounded-[50px] opacity-20 z-3" />
+                    <div style="border-radius: 50px;"
+                        class="relative z-10 text-white p-4 shadow-md h-full flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-3xl"
+                                style="color: #4D2C5E; text-align: center; font-weight: 500; font-family: Georgia;">
+                                Semester 1</h3>
+                            <ul class="list-disc text-lg space-y-1"
+                                style="color: #4D2C5E; font-family: javanese text; padding-left: 10%;">
+                                <li>Computer Fundamentals</li>
+                                <li>Programming in C</li>
+                                <li>Mathematics I</li>
+                                <li>Communication Skills</li>
+                            </ul>
+                        </div>
+                        <p class="text-lg mt-2" style="color: #4D2C5E; font-family: javanese text; padding-left: 10%;">
+                            <b>Focus:</b> Basics of computing and programming
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Semester 2 -->
+                <div class="relative h-64">
+                    <img src="electrical" alt="Semester 2"
+                        class="absolute inset-0 w-full h-full object-cover rounded-[50px] opacity-20 z-0" />
+                    <div style="border-radius: 50px;"
+                        class="relative z-10 text-white p-4 shadow-md h-full flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-3xl"
+                                style="color: #4D2C5E; text-align: center; font-weight: 500; font-family: Georgia;">
+                                Semester 2</h3>
+                            <ul class="list-disc text-lg space-y-1"
+                                style="color: #4D2C5E; font-family: javanese text; padding-left: 10%;">
+                                <li>Data Structures</li>
+                                <li>Discrete Mathematics</li>
+                                <li>Database Management System</li>
+                                <li>Web Technologies</li>
+                            </ul>
+                        </div>
+                        <p class="text-lg mt-2" style="color: #4D2C5E; font-family: javanese text; padding-left: 10%;">
+                            <b>Focus:</b> Core technical concepts
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Semester 3 -->
+                <div class="relative h-64">
+                    <img src="mechanical2" alt="Semester 3"
+                        class="absolute inset-0 w-full h-full object-cover rounded-[10px] opacity-20 z-0"
+                        style="border-radius: 7vh;" />
+                    <div style="border-radius: 50px;"
+                        class="relative z-10 text-white p-4 shadow-md h-full flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-3xl"
+                                style="color: #4D2C5E; text-align: center; font-weight: 500; font-family: Georgia;">
+                                Semester 3</h3>
+                            <ul class="list-disc text-lg space-y-1"
+                                style="color: #4D2C5E; font-family: javanese text; padding-left: 10%;">
+                                <li>Operating Systems</li>
+                                <li>Object Oriented Programming in C++</li>
+                                <li>Software Engineering</li>
+                                <li>Computer Networks</li>
+                            </ul>
+                        </div>
+                        <p class="text-lg mt-2" style="color: #4D2C5E; font-family: javanese text; padding-left: 10%;">
+                            <b>Focus:</b> System software and development
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Semester 4 -->
+                <div class="relative h-64">
+                    <img src="civil.png.jpg" alt="Semester 4"
+                        class="absolute inset-0 w-full h-full object-cover rounded-[50px] opacity-20 z-0" />
+                    <div style="border-radius: 50px;"
+                        class="relative z-10 text-white p-4 shadow-md h-full flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-3xl"
+                                style="color: #4D2C5E; text-align: center; font-weight: 500; font-family: Georgia;">
+                                Semester 4</h3>
+                            <ul class="list-disc text-lg space-y-1"
+                                style="color: #4D2C5E; font-family: javanese text; padding-left: 10%;">
+                                <li>Java Programming</li>
+                                <li>Computer Graphics</li>
+                                <li>Python Programming</li>
+                                <li>Project Work</li>
+                            </ul>
+                        </div>
+                        <p class="text-lg mt-2" style="color: #4D2C5E; font-family: javanese text; padding-left: 10%;">
+                            <b>Focus:</b> Programming skills & practical exposure
+                        </p>
+                    </div>
+                </div>
+                <!-- Semester 5 -->
+                <div class="relative h-64">
+                    <img src="sem5.png" alt="Semester 5"
+                        class="absolute inset-0 w-full h-full object-cover rounded-[50px] opacity-20 z-0" />
+                    <div style="border-radius: 50px;"
+                        class="relative z-10 text-white p-4 shadow-md h-full flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-3xl"
+                                style="color: #4D2C5E; text-align: center; font-weight: 500; font-family: Georgia;">
+                                Semester 5</h3>
+                            <ul class="list-disc text-lg space-y-1"
+                                style="color: #4D2C5E; font-family: javanese text; padding-left: 10%;">
+                                <li>Mobile Application Development</li>
+                                <li>Artificial Intelligence</li>
+                                <li>Cloud Computing</li>
+                                <li>Elective I</li>
+                            </ul>
+                        </div>
+                        <p class="text-lg mt-2" style="color: #4D2C5E; font-family: javanese text; padding-left: 10%;">
+                            <b>Focus:</b> Emerging tech and specialization
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Semester 6 -->
+                <div class="relative h-64">
+                    <img src="sem6.png" alt="Semester 6"
+                        class="absolute inset-0 w-full h-full object-cover rounded-[50px] opacity-20 z-0" />
+                    <div style="border-radius: 50px;"
+                        class="relative z-10 text-white p-4 shadow-md h-full flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-3xl"
+                                style="color: #4D2C5E; text-align: center; font-weight: 500; font-family: Georgia;">
+                                Semester 6</h3>
+                            <ul class="list-disc text-lg space-y-1"
+                                style="color: #4D2C5E; font-family: javanese text; padding-left: 10%;">
+                                <li>Major Project</li>
+                                <li>Internship / Industrial Training</li>
+                                <li>Elective II</li>
+                                <li>Seminar/Presentation</li>
+                            </ul>
+                        </div>
+                        <p class="text-lg mt-2" style="color: #4D2C5E; font-family: javanese text; padding-left: 10%;">
+                            <b>Focus:</b> Real-world experience and final project
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background-color: #4d2c5e;" class="bg-indigo-900 text-white text-center p-4 mt-10">
+        <p>&copy; 2025 OnetickCourses. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

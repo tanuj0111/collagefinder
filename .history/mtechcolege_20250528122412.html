@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>B.Tech Colleges - OnetickCourses</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .college-card {
+      background-color: white;
+      color: #4d2c5e !important;
+    }
+
+    .py-10,
+    .py-6 {
+      background-color: white;
+    }
+
+    .modal-bg {
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Navbar -->
+  <nav style="background-color:#4D2C5E;"
+    class="shadow border-b sticky top-0 z-50 flex items-center justify-between px-4 py-3">
+    <ul class="flex space-x-8 text-sm font-medium">
+      <li><a href="m.techoverview.html" class="text-white">Overview</a></li>
+      <li><a href="mtechSyllabusfinal.html" class="text-white">Syllabus</a></li>
+      <li><a href="mtechcolege.html" class="text-white">M-Tech Colleges</a></li>
+    </ul>
+
+    <!-- Hamburger icon -->
+    <button onclick="toggleSidebar()" class="text-white focus:outline-none">
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Sidebar -->
+  <div id="sidebar"
+    class="fixed top-0 left-0 h-full w-64 bg-white text-white transform -translate-x-full transition-transform duration-300 z-50 shadow-lg">
+    <div class="p-6">
+      <h2 class="text-2xl font-bold mb-6" style="color: #4D2C5E;">Menu</h2>
+      <ul class="space-y-4">
+        <li><a href="a-main.html" class="hover:underline" style="color: #4D2C5E;">Home</a></li>
+        <li><a href="m.techoverview.html" class="hover:underline" style="color: #4D2C5E;">Overview</a></li>
+        <li><a href="mtechSyllabusfinal.html" class="hover:underline" style="color: #4D2C5E;">Syllabus</a></li>
+        <li><a href="mtechcolege.html" class="hover:underline" style="color: #4D2C5E;">M-Tech Colleges</a></li>
+      </ul>
+      <button onclick="toggleSidebar()" class="mt-8 px-4 py-2 rounded transition"
+        style="background-color: #4D2C5E;">Close</button>
+    </div>
+  </div>
+
+  <!-- Filter and Content -->
+  <div class="flex flex-col lg:flex-row">
+    <!-- Filter Sidebar -->
+    <aside class="w-full md:w-64 bg-white border-r p-4 space-y-6">
+      <h2 class="text-xl font-bold">Filters</h2>
+      <div>
+        <h3 class="font-semibold mb-2">Budget (₹)</h3>
+        <input type="range" id="budgetRange" min="50000" max="300000" step="10000" value="150000" class="w-full" />
+        <div class="text-sm text-gray-600 mt-1">Up to ₹<span id="budgetValue">150000</span></div>
+      </div>
+      <div>
+        <h3 class="font-semibold mb-2">Course Duration</h3>
+        <label><input type="checkbox" class="durationCheckbox" value="2" /> 2 Years</label><br />
+        <label><input type="checkbox" class="durationCheckbox" value="3" /> 3 Years</label><br />
+        <label><input type="checkbox" class="durationCheckbox" value="4" /> 4 Years</label>
+      </div>
+      <div>
+        <h3 class="font-semibold mb-2">City</h3>
+        <label><input type="checkbox" class="cityCheckbox" value="Noida" /> Noida</label><br />
+        <label><input type="checkbox" class="cityCheckbox" value="Greater Noida" /> Greater Noida</label><br />
+        <label><input type="checkbox" class="cityCheckbox" value="Ghaziabad" /> Ghaziabad</label><br />
+        <label><input type="checkbox" class="cityCheckbox" value="Faridabad" /> Faridabad</label>
+      </div>
+    </aside>
+
+    <!-- College Grid -->
+    <div class="w-full lg:w-3/4 p-4">
+      <h2 class="text-4xl font-bold mb-10 text-center">
+        <span class="text-yellow-400" style="font-family: centaur;">T</span><span class="text-[#150136]"
+          style="font-family: centaur;">op </span>
+        <span class="text-yellow-400 " style="font-family: centaur;">M.</span><span class="text-[#150136]"
+          style="font-family: centaur;">Tech</span>
+        <span class="text-yellow-400" style="font-family: centaur;">Co</span><span class="text-[#150136]"
+          style="font-family: centaur;">lleges </span>
+      </h2>
+
+      <div id="collegeList"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 max-h-[500px] overflow-y-auto">
+
+        <!-- Example College Card -->
+        <button onclick="openFormPopup()">
+          <div class="college-card p-6 shadow-md" data-city="Noida" data-fee="100000" data-duration="3">
+            <h4 class="text-xl font-bold">ABC Institute of Tech</h4>
+            <img src="download.jpg" alt="img">
+            <p><strong>Description:</strong> Lorem ipsum dolor sit amet...</p>
+            <p><strong>City:</strong> Noida</p>
+            <p><strong>Fee:</strong> ₹1,00,000/year</p>
+            <p><strong>Duration:</strong> 3 Years</p>
+          </div>
+        </button>
+        <!-- Add other buttons similarly -->
+      </div>
+      <p id="noResultsMessage" class="text-center text-gray-600 text-lg my-4 hidden">
+        Oops! No colleges found matching your criteria.
+      </p>
+    </div>
+  </div>
+
+  <!-- Form Modal -->
+  <div id="formModal"
+    class="fixed inset-0 flex items-center justify-center modal-bg z-50 hidden">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+      <h2 class="text-xl font-bold mb-4">Apply Now</h2>
+      <form id="collegeForm">
+        <input type="text" placeholder="Name" required class="w-full border mb-2 p-2 rounded" />
+        <input type="email" placeholder="Email" required class="w-full border mb-2 p-2 rounded" />
+        <input type="tel" placeholder="Phone Number" required class="w-full border mb-2 p-2 rounded" />
+        <select class="w-full border mb-4 p-2 rounded" required>
+          <option value="">Select Stream</option>
+          <option value="B.Tech">B.Tech</option>
+          <option value="M.Tech">M.Tech</option>
+          <option value="BCA">BCA</option>
+          <option value="MCA">MCA</option>
+        </select>
+        <button type="submit" class="w-full bg-purple-700 text-white py-2 rounded">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Thank You Modal -->
+  <div id="thankYouModal"
+    class="fixed inset-0 flex items-center justify-center modal-bg z-50 hidden">
+    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+      <h2 class="text-2xl font-bold mb-2 text-green-600">Thank You!</h2>
+      <p>We received your application.</p>
+    </div>
+  </div>
+
+  <!-- College Info Modal -->
+  <div id="infoModal"
+    class="fixed inset-0 flex items-center justify-center modal-bg z-50 hidden overflow-x-auto">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-96 " >
+      <h2 class="text-xl font-bold mb-4 text-purple-700">College Information</h2>
+      <p><strong>City:</strong> Noida</p>
+      <p><strong>Placed Students:</strong> 95%</p>
+      <p><strong>Affiliation:</strong> UGC & PGC Approved</p>
+      <p><strong>City:</strong> Noida</p>
+      <p><strong>Placed Students:</strong> 95%</p>
+      <p><strong>Affiliation:</strong> UGC & PGC Approved</p>
+      <p><strong>City:</strong> Noida</p>
+      <p><strong>Placed Students:</strong> 95%</p>
+      <p><strong>Affiliation:</strong> UGC & PGC Approved</p>
+      <p><strong>City:</strong> Noida</p>
+      <p><strong>Placed Students:</strong> 95%</p>
+      <p><strong>Affiliation:</strong> UGC & PGC Approved</p>
+      <p><strong>City:</strong> Noida</p>
+      <p><strong>Placed Students:</strong> 95%</p>
+      <p><strong>Affiliation:</strong> UGC & PGC Approved</p>
+      <p><strong>City:</strong> Noida</p>
+      <p><strong>Placed Students:</strong> 95%</p>
+      <p><strong>Affiliation:</strong> UGC & PGC Approved</p>
+      <p><strong>City:</strong> Noida</p>
+      <p><strong>Placed Students:</strong> 95%</p>
+      <p><strong>Affiliation:</strong> UGC & PGC Approved</p>
+      <p><strong>City:</strong> Noida</p>
+      <p><strong>Placed Students:</strong> 95%</p>
+      <p><strong>Affiliation:</strong> UGC & PGC Approved</p>
+      <button onclick="closeAllPopups()" class="mt-4 w-full bg-purple-700 text-white py-2 rounded">Close</button>
+    </div>
+  </div>
+
+  
+  <!-- Footer -->
+  <footer style="background-color:  #4d2c5e;" class="text-white text-center p-4 mt-10">
+    <p>&copy; 2025 OnetickCourses. All rights reserved.</p>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('-translate-x-full');
+    }
+
+    function applyFilters() {
+      const maxBudget = parseInt(document.getElementById('budgetRange').value);
+      const selectedDurations = Array.from(document.querySelectorAll('.durationCheckbox:checked')).map(cb => cb.value);
+      const selectedCities = Array.from(document.querySelectorAll('.cityCheckbox:checked')).map(cb => cb.value);
+      const cards = document.querySelectorAll('.college-card');
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const fee = parseInt(card.dataset.fee);
+        const city = card.dataset.city;
+        const duration = card.dataset.duration;
+
+        const matchBudget = fee <= maxBudget;
+        const matchCity = selectedCities.length === 0 || selectedCities.includes(city);
+        const matchDuration = selectedDurations.length === 0 || selectedDurations.includes(duration);
+
+        if (matchBudget && matchCity && matchDuration) {
+          card.parentElement.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.parentElement.classList.add('hidden');
+        }
+      });
+
+      document.getElementById('noResultsMessage').classList.toggle('hidden', visibleCount !== 0);
+    }
+
+    document.getElementById('budgetRange').addEventListener('input', function () {
+      document.getElementById('budgetValue').innerText = this.value;
+      applyFilters();
+    });
+
+    document.querySelectorAll('.durationCheckbox, .cityCheckbox').forEach(cb => {
+      cb.addEventListener('change', applyFilters);
+    });
+
+    applyFilters();
+
+    // Popup logic
+    function openFormPopup() {
+      document.getElementById('formModal').classList.remove('hidden');
+    }
+
+    document.getElementById('collegeForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      document.getElementById('formModal').classList.add('hidden');
+      document.getElementById('thankYouModal').classList.remove('hidden');
+
+      setTimeout(() => {
+        document.getElementById('thankYouModal').classList.add('hidden');
+        document.getElementById('infoModal').classList.remove('hidden');
+      }, 2000);
+    });
+
+    function closeAllPopups() {
+      document.getElementById('formModal').classList.add('hidden');
+      document.getElementById('thankYouModal').classList.add('hidden');
+      document.getElementById('infoModal').classList.add('hidden');
+    }
+  </script>
+</body>
+
+</html>

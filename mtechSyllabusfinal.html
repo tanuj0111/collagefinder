@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>M.Tech Syllabus - OnetickCourses</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body style="background-color:white;" class="bg-gray-100 text-gray-800">
+
+   <!-- Navbar -->
+<nav style="background-color:#4D2C5E;" class="bg-white shadow border-b sticky top-0 z-50 flex items-center justify-between px-4 py-3">
+  <ul class="flex space-x-8 text-sm font-medium">
+    <li><a href="m.techoverview.html" class="text-white">Overview</a></li>
+    <li><a href="mtechSyllabusfinal.html" class="text-white">Syllabus</a></li>
+    <li><a href="mtechcolege.html" class="text-white">M-Tech Colleges</a></li>
+  </ul>
+
+  <!-- Hamburger icon -->
+  <button onclick="toggleSidebar()" class="text-white focus:outline-none">
+    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M4 6h16M4 12h16M4 18h16"></path>
+    </svg>
+  </button>
+</nav>
+
+<!-- Sidebar -->
+<div id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-white text-white transform -translate-x-full transition-transform duration-300 z-50 shadow-lg">
+  <div class="p-6">
+    <h2 class="text-2xl font-bold mb-6" style="color: #4D2C5E;">Menu</h2>
+    <ul class="space-y-4">
+      <li><a href="a-main.html" class="hover:underline"style="color: #4D2C5E;">Home</a></li>
+      <li><a href="m.techoverview.html" class="hover:underline" style="color: #4D2C5E;">Overview</a></li>
+      <li><a href="mtechSyllabusfinal.html" class="hover:underline"style="color: #4D2C5E;">Syllabus</a></li>
+      <li><a href="mtechcolege.html" class="hover:underline"style="color: #4D2C5E;">M-Tech Colleges</a></li>
+    </ul>
+    <button onclick="toggleSidebar()" class="mt-8 px-4 py-2 bg-pink-500 rounded hover:bg-pink-600 transition" style="background-color: #4D2C5E;">Close</button>
+  </div>
+</div>
+
+<!-- JavaScript to toggle sidebar -->
+<script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('-translate-x-full');
+  }
+</script>
+
+    <!-- Syllabus Section -->
+    <section style="background-color:white;" class="py-12 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold mb-10 text-center">
+                <span class="text-[#FFC90E]" style="color:#FFC90E ;font-family: centaur;font-size: 7vh;">M.</span><span
+                    class="text-[#4D2C5E]" style="color:#4D2C5E ;font-family: centaur;font-size: 7vh;">Tech </span>
+                <span class="text-yellow-400" style="color:#FFC90E ;font-family: centaur;font-size: 7vh;">St</span><span
+                    class="text-[#4D2C5E]" style="color:#4D2C5E ;font-family: centaur;font-size: 7vh;">ream-</span>
+                <span class="text-yellow-400" style="color:#FFC90E ;font-family: centaur;font-size: 7vh;">Wi</span><span
+                    class="text-[#4D2C5E]" style="color:#4D2C5E ;font-family: centaur;font-size: 7vh;">se </span>
+                <span class="text-yellow-400" style="color:#FFC90E ;font-family: centaur;font-size: 7vh;">Sy</span><span
+                    class="text-[#4D2C5E]" style="color:#4D2C5E ;font-family: centaur;font-size: 7vh;">llabus</span>
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <!-- CSE -->
+                <div class="relative h-64">
+                    <!-- Background Image -->
+                    <img src="compare.png" alt="CSE Background"
+                        class="absolute inset-0 w-full h-full object-cover rounded-[50px] opacity-20 z-3" />
+
+                    <!-- Content Box -->
+                    <div style="border-radius: 50px;"
+                        class="relative z-10 text-white p-4 shadow-md h-full flex flex-col justify-between">
+                        <div>
+                            <h3 style="color: #4D2C5E;text-align: center;font-weight: 500;font-family: Georgia, 'Times New Roman', Times, serif;"
+                                class="text-3xl font-semibold mb-2">Computer Science (CSE)</h3>
+                            <ul style="color: #4D2C5E;font-family: javanese text; padding-left: 10%;"
+                                class="list-disc pl-4 text-lg text-yellow-300 space-y-1">
+                                <li>AI & ML</li>
+                                <li>Cloud Computing</li>
+                                <li>Big Data</li>
+                                <li>Cryptography</li>
+                            </ul>
+                        </div>
+                        <p style="color: #4D2C5E;font-family: javanese text; padding-left: 10%;" class="text-lg mt-2">
+                            <b>Careers:</b> AI Engineer, Data Scientist</p>
+                    </div>
+                </div>
+
+
+                <!-- ECE -->
+                <div class="relative h-64">
+                    <!-- Background Image -->
+                    <img src="electrical" alt="ECE Background"
+                        class="absolute inset-0 w-full h-full object-cover rounded-[50px] opacity-20 z-0" />
+
+                    <!-- Content Box -->
+                    <div style="border-radius: 50px;"
+                        class="relative z-10 text-white p-4 shadow-md h-full flex flex-col justify-between">
+                        <div>
+                            <h3 style="color: #4D2C5E;text-align: center;font-weight: 500;font-family: Georgia, 'Times New Roman', Times, serif;"
+                                class="text-3xl font-semibold mb-2 ">Electronics & Comm. (ECE)</h3>
+                            <ul style="color: #4D2C5E;font-family: javanese text; padding-left: 10%;"
+                                class="list-disc pl-4 text-lg space-y-1">
+                                <li>Signal Processing</li>
+                                <li>VLSI Design</li>
+                                <li>Wireless Systems</li>
+                                <li>Embedded Tech</li>
+                            </ul>
+                        </div>
+                        <p style="color: #4D2C5E;font-family: javanese text; padding-left: 10%;" class="text-lg  mt-2">
+                           <b> Careers:</b> IC Designer, Comm. Analyst</p>
+                    </div>
+                </div>
+
+                <!-- Mechanical -->
+                <div class="relative h-64">
+                    <!-- Background Image -->
+                    <img src="mechanical2" alt="Mechanical Background"
+                        class="absolute inset-0 w-full h-full object-cover rounded-[10px] opacity-20 z-0"
+                        style="border-radius: 7vh;" />
+
+                    <!-- Content Box -->
+                    <div style="border-radius: 50px;"
+                        class="relative z-10 text-white p-4 shadow-md h-full flex flex-col justify-between">
+                        <div>
+                            <h3 style="color: #4D2C5E;text-align: center;font-weight: 500;font-family: Georgia, 'Times New Roman', Times, serif;"
+                                class="text-3xl font-semibold mb-2">Mechanical Engg.</h3>
+                            <ul style="color: #4D2C5E;font-family: javanese text; padding-left: 10%;"
+                                class="list-disc pl-4 text-lg  space-y-1">
+                                <li>Thermodynamics</li>
+                                <li>CFD</li>
+                                <li>FEM</li>
+                                <li>Robotics</li>
+                            </ul>
+                        </div>
+                        <p style="color: #4D2C5E;font-family: javanese text; padding-left: 10%;" class="text-lg  mt-2">
+                            <b>Careers:</b> Design & Thermal Engr.</p>
+                    </div>
+                </div>
+
+                <!-- Civil -->
+                <div class="relative h-64">
+                    <!-- Background Image -->
+                    <img src="civil.png.jpg" alt="Civil Background"
+                        class="absolute inset-0 w-full h-full object-cover rounded-[50px] opacity-20 z-0" />
+
+                    <!-- Content Box -->
+                    <div style="border-radius: 50px;"
+                        class="relative z-10 text-white p-4 shadow-md h-full flex flex-col justify-between">
+                        <div>
+                            <h3 style="color: #4D2C5E;text-align: center;font-weight: 500;font-family: Georgia, 'Times New Roman', Times, serif;"
+                                class="text-3xl font-semibold mb-2">Civil Engineering</h3>
+                            <ul style="color: #4D2C5E;font-family: javanese text; padding-left: 10%;"
+                                class="list-disc pl-4 text-lg space-y-1">
+                                <li>Structural Design</li>
+                                <li>Foundation Engg.</li>
+                                <li>Transport Systems</li>
+                                <li>Hydraulics</li>
+                            </ul>
+                        </div>
+                        <p style="color: #4D2C5E;font-family: javanese text; padding-left: 10%;" class="text-lg mt-2">
+                           <b>Careers:</b>  Planner, Consultant</p>
+                    </div>
+                </div>
+
+            </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer style="background-color: #4d2c5e;" class="bg-indigo-900 text-white text-center p-4 mt-10">
+        <p>&copy; 2025 OnetickCourses. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

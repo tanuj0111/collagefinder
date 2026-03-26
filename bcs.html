@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EduCourses Landing Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .hidden-page {
+      display: none;
+    }
+
+    .visible-page {
+      display: block;
+    }
+
+    /* Smooth fade animation */
+    .fade-enter {
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .fade-enter-active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-white text-gray-800 font-sans">
+
+  <!-- Main Page -->
+  <div id="mainPage" class="visible-page transition-opacity duration-300">
+
+    <!-- Navbar -->
+    <nav class="bg-gray-900 p-4 text-white shadow-lg sticky top-0 z-50">
+      <div class="container mx-auto flex justify-between items-center">
+        <h1 class="text-2xl font-bold">Onetick</h1>
+        <div class="space-x-6 text-lg">
+          <a href="#home" class="hover:text-yellow-300 transition">Home</a>
+          <a href="#courses" class="hover:text-yellow-300 transition">Courses</a>
+          <a href="#contact" class="hover:text-yellow-300 transition">Contact Us</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="h-screen flex items-center justify-center bg-gradient-to-r from-yellow-400 via-red-400 to-pink-500 text-white">
+      <div class="text-center px-4">
+        <h2 class="text-5xl md:text-6xl font-extrabold mb-6 drop-shadow-lg">Welcome to OnetickCourses</h2>
+        <p class="text-xl md:text-2xl font-semibold drop-shadow-md">Empower your future with quality education</p>
+      </div>
+    </section>
+
+    <!-- Courses -->
+    <section id="courses" class="py-16 bg-[#BF7651] text-[#2A3537]">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-extrabold text-center mb-10">Our Courses</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- B.Tech -->
+          <div
+            class="bg-[#071B1A] text-white p-6 rounded-xl shadow-md hover:shadow-xl transition transform hover:scale-105 flex flex-col justify-between">
+            <div>
+              <h3 class="text-2xl font-semibold mb-3 flex items-center gap-2"><i class="fas fa-cogs"></i> B.Tech</h3>
+              <p><strong>Duration:</strong> 4 years</p>
+              <p><strong>Fee:</strong> ₹2,00,000/year</p>
+              <p><strong>City:</strong> Noida</p>
+            </div>
+          </div>
+
+          <!-- M.Tech -->
+          <div
+            class="bg-[#071B1A] text-white p-6 rounded-xl shadow-md hover:shadow-xl transition transform hover:scale-105 flex flex-col justify-between">
+            <div>
+              <h3 class="text-2xl font-semibold mb-3 flex items-center gap-2"><i class="fas fa-graduation-cap"></i> M.Tech</h3>
+              <p><strong>Duration:</strong> 2 years</p>
+              <p><strong>Fee:</strong> ₹1,80,000/year</p>
+              <p><strong>City:</strong> Ghaziabad</p>
+            </div>
+          </div>
+
+          <!-- BCA -->
+          <div onclick="showPage('bcaPage')" tabindex="0"
+            class="cursor-pointer bg-[#071B1A] text-white p-6 rounded-xl shadow-md hover:shadow-xl transition transform hover:scale-105 focus:outline-yellow-300 flex flex-col justify-between">
+            <div>
+              <h3 class="text-2xl font-semibold mb-3 flex items-center gap-2"><i class="fas fa-laptop-code"></i> BCA</h3>
+              <p><strong>Duration:</strong> 3 years</p>
+              <p><strong>Fee:</strong> ₹1,20,000/year</p>
+              <p><strong>City:</strong> Faridabad</p>
+              <button
+                class="mt-4 text-yellow-300 underline text-sm font-semibold hover:text-yellow-400 transition">View
+                Details</button>
+            </div>
+          </div>
+
+          <!-- MCA -->
+          <div onclick="showPage('mcaPage')" tabindex="0"
+            class="cursor-pointer bg-[#071B1A] text-white p-6 rounded-xl shadow-md hover:shadow-xl transition transform hover:scale-105 focus:outline-yellow-300 flex flex-col justify-between">
+            <div>
+              <h3 class="text-2xl font-semibold mb-3 flex items-center gap-2"><i class="fas fa-code"></i> MCA</h3>
+              <p><strong>Duration:</strong> 2 years</p>
+              <p><strong>Fee:</strong> ₹1,50,000/year</p>
+              <p><strong>City:</strong> Faridabad</p>
+              <button
+                class="mt-4 text-yellow-300 underline text-sm font-semibold hover:text-yellow-400 transition">View
+                Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-8">Contact Us</h2>
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+          <form id="contactForm" class="space-y-6 bg-white p-8 rounded-xl shadow-md max-w-lg mx-auto md:mx-0">
+            <div>
+              <label class="block text-sm font-medium mb-1">Name</label>
+              <input type="text" name="name" required
+                class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-yellow-300 focus:ring-2 focus:ring-yellow-400" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-1">Phone Number</label>
+              <input type="tel" name="phone" required pattern="[0-9]{10}"
+                class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-yellow-300 focus:ring-2 focus:ring-yellow-400" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-1">Email</label>
+              <input type="email" name="email" required
+                class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-yellow-300 focus:ring-2 focus:ring-yellow-400" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-1">Interested Course</label>
+              <select name="course" required
+                class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-yellow-300 focus:ring-2 focus:ring-yellow-400">
+                <option value="">Select a course</option>
+                <option value="btech">B.Tech</option>
+                <option value="mtech">M.Tech</option>
+                <option value="bca">BCA</option>
+                <option value="mca">MCA</option>
+              </select>
+            </div>
+            <button type="submit"
+              class="bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition font-semibold w-full">Save</button>
+          </form>
+          <div class="text-center max-w-md mx-auto md:mx-0">
+            <h3 class="text-xl font-semibold mb-4">Get in Touch!</h3>
+            <p>We're happy to help you choose the best course for your future.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white p-6 mt-10">
+      <div
+        class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4 md:gap-0 text-sm md:text-base">
+        <p>&copy; 2025 EduCourses | Authorized Institute</p>
+        <div class="flex space-x-6 text-2xl">
+          <a href="https://www.instagram.com/praveenbhardwaj02/#" class="hover:text-yellow-300" aria-label="Instagram"><i
+              class="fab fa-instagram"></i></a>
+          <a href="#" class="hover:text-yellow-300" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="hover:text-yellow-300" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- BCA Details Page -->
+  <div id="bcaPage" class="hidden-page p-6 bg-[#BF7651] text-[#2A3537] min-h-screen flex items-center justify-center">
+    <div
+      class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-xl space-y-6 animate-fade-in overflow-y-auto max-h-[90vh]">
+      <h2 class="text-3xl font-bold mb-4 flex items-center gap-3"><i class="fas fa-laptop-code"></i> Bachelor of
+        Computer Applications (BCA): A Comprehensive Overview</h2>
+
+      <section>
+        <h3 class="text-xl font-semibold mb-2">Introduction</h3>
+        <p>The Bachelor of Computer Applications (BCA) is a 3-year undergraduate degree focused on the fundamentals of
+          computer science, programming, and application development. It is a stepping stone for students interested in
+          pursuing a career in the IT sector without having a background in engineering.</p>
+      </section>
+
+      <section>
+        <h3 class="text-xl font-semibold mb-2">Duration and Eligibility</h3>
+        <p><strong>Duration:</strong> 3 years (6 semesters)</p>
+        <p><strong>Eligibility:</strong> 10+2 with mathematics or computer science (some universities allow any stream)</p>
+      </section>
+
+      <section>
+        <h3 class="text-xl font-semibold mb-2">Program Structure</h3>
+        <ul class="list-disc list-inside">
+          <li>Core Subjects: Programming, DBMS, OS, Networking, etc.</li>
+          <li>Labs: Programming and system labs every semester.</li>
+          <li>Electives: Data Science, AI, Web Design, etc.</li>
+          <li>Minor Project: 5th semester</li>
+          <li>Final Project/Internship: 6th semester</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3 class="text-xl font-semibold mb-2">Syllabus Overview</h3>
+        <div class="space-y-4">
+          <div>
+            <h4 class="font-semibold">Year 1:</h4>
+            <ul class="list-disc list-inside ml-5">
+              <li>Fundamentals of Computers</li>
+              <li>Programming in C</li>
+              <li>Mathematics</li>
+              <li>Digital Electronics</li>
+              <li>Office Automation Tools</li>
+              <li>Introduction to Web Design</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold">Year 2:</h4>
+            <ul class="list-disc list-inside ml-5">
+              <li>Data Structures</li>
+              <li>Object-Oriented Programming (C++/Java)</li>
+              <li>Database Management Systems</li>
+              <li>Operating Systems</li>
+              <li>Software Engineering</li>
+              <li>Computer Networks</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold">Year 3:</h4>
+            <ul class="list-disc list-inside ml-5">
+              <li>Python Programming</li>
+              <li>Mobile App Development</li>
+              <li>Cloud Computing</li>
+              <li>Artificial Intelligence (Elective)</li>
+              <li>Project Work / Internship</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3 class="text-xl font-semibold mb-2">Career Opportunities After BCA</h3>
+        <ul class="list-disc list-inside">
+          <li>Software Developer</li>
+          <li>Web Developer</li>
+          <li>System Analyst</li>
+          <li>IT Support Engineer</li>
+          <li>Technical Writer</li>
+          <li>Network Administrator</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3 class="text-xl font-semibold mb-2">Further Studies:</h3>
+        <ul class="list-disc list-inside">
+          <li>MCA</li>
+          <li>MBA (IT)</li>
+          <li>Certifications: AWS, Google Cloud, Data Analytics, etc.</li>
+        </ul>
+      </section>
+
+      <button onclick="showPage('mainPage')"
+        class="text-blue-600 underline font-semibold hover:text-blue-800 mt-4">← Back to Courses</button>
+    </div>
+  </div>
+
+  <!-- MCA Details Page -->
+  <div id="mcaPage" class="hidden-page p-6 bg-[#BF7651] text-[#2A3537] min-h-screen flex items-center justify-center">
+    <div
+      class="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-xl space-y-6 animate-fade-in overflow-y-auto max-h-[90vh]">
+      <h2 class="text-3xl font-bold mb-4 flex items-center gap-3"><i class="fas fa-code"></i> Master of Computer
+        Applications (MCA): A Comprehensive Overview</h2>
+
+      <section>
+        <h3 class="text-xl font-semibold mb-2">Introduction</h3>
+        <p>The Master of Computer Applications (MCA) is a postgraduate degree designed to provide advanced knowledge and
+          skills in computer applications, software development, and IT management. It prepares graduates for leadership
+          roles in IT industries.</p>
+      </section>
+
+      <section>
+        <h3 class="text-xl font-semibold mb-2">Duration and Eligibility</h3>
+        <p><strong>Duration:</strong> 2 years (4 semesters)</p>
+        <p><strong>Eligibility:</strong> Bachelor's degree in Computer Applications, Science or Engineering</p>
+      </section>
+
+      <section>
+        <h3 class="text-xl font-semibold mb-2">Program Structure</h3>
+        <ul class="list-disc list-inside">
+          <li>Core Subjects: Advanced Programming, Software Engineering, Database Systems</li>
+          <li>Electives: AI, Data Science, Cybersecurity, Cloud Computing</li>
+          <li>Research Project / Thesis</li>
+          <li>Industry Internship</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3 class="text-xl font-semibold mb-2">Syllabus Overview</h3>
+        <div class="space-y-4">
+          <div>
+            <h4 class="font-semibold">Year 1:</h4>
+            <ul class="list-disc list-inside ml-5">
+              <li>Advanced Programming (Java, Python)</li>
+              <li>Operating Systems</li>
+              <li>Database Management Systems</li>
+              <li>Computer Networks</li>
+              <li>Software Engineering</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold">Year 2:</h4>
+            <ul class="list-disc list-inside ml-5">
+              <li>Artificial Intelligence & Machine Learning</li>
+              <li>Data Science & Big Data Analytics</li>
+              <li>Cloud Computing & Cybersecurity</li>
+              <li>Project / Thesis</li>
+              <li>Internship / Industrial Training</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3 class="text-xl font-semibold mb-2">Career Opportunities After MCA</h3>
+        <ul class="list-disc list-inside">
+          <li>Senior Software Developer</li>
+          <li>Project Manager</li>
+          <li>Data Scientist</li>
+          <li>System Architect</li>
+          <li>IT Consultant</li>
+          <li>Cybersecurity Analyst</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3 class="text-xl font-semibold mb-2">Further Studies & Certifications:</h3>
+        <ul class="list-disc list-inside">
+          <li>Ph.D. in Computer Science / IT</li>
+          <li>Professional Certifications: PMP, AWS, CISSP, etc.</li>
+          <li>Workshops & Conferences</li>
+        </ul>
+      </section>
+
+      <button onclick="showPage('mainPage')"
+        class="text-blue-600 underline font-semibold hover:text-blue-800 mt-4">← Back to Courses</button>
+    </div>
+  </div>
+
+  <script>
+    function showPage(pageId) {
+      const pages = ['mainPage', 'bcaPage', 'mcaPage'];
+      pages.forEach((id) => {
+        document.getElementById(id).classList.add('hidden-page');
+        document.getElementById(id).classList.remove('visible-page');
+      });
+      const page = document.getElementById(pageId);
+      page.classList.remove('hidden-page');
+      page.classList.add('visible-page');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Optional: smooth fade-in animation on page show
+  </script>
+
+</body>
+
+</html>

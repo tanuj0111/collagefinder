@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Guidance - EduGuide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background: linear-gradient(to right, #fce3ec, #e2f0fb);
+        }
+
+        .doodle-img {
+            max-width: 220px;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .popup.flex {
+            display: flex !important;
+        }
+
+        .popup-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body class="text-gray-800">
+    <header style="background-color: #4D2C5E;height: 8vh; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"
+        class="fixed top-0 left-0 w-full flex items-center justify-between px-6 bg-[#4D2C5E] text-white h-[7vh] z-50">
+        <h1 class="text-2xl font-bold" style="padding-left: 7%;font-size: 4vh;">EduGuide</h1>
+
+        <!-- Hamburger Icon -->
+        <button onclick="toggleSidebar()" class="focus:outline-none z-50">
+            <div class="space-y-1">
+                <span class="block w-7 h-1 bg-white rounded"></span>
+                <span class="block w-7 h-1 bg-white rounded"></span>
+                <span class="block w-7 h-1 bg-white rounded"></span>
+            </div>
+        </button>
+    </header>
+
+    <!-- Sidebar Menu -->
+    <div id="sidebar"
+        class="fixed top-0 left-0 h-full w-64 bg-white shadow-lg transform -translate-x-full transition-transform duration-300 z-40">
+        <div class="p-6">
+            <h2 class="text-xl font-bold text-[#4D2C5E] mb-6">Menu</h2>
+            <nav class="space-y-4">
+                <a href="a-main.html" class="block text-gray-700 hover:text-[#4D2C5E]">Home</a>
+                <a href="m.techoverview.html" class="block text-gray-700 hover:text-[#4D2C5E]">M.tech</a>
+                <a href="mtechSyllabusfinal.html" class="block text-gray-700 hover:text-[#4D2C5E]">M.tech Syllabus</a>
+                <a href="mtechcolege.html" class="block text-gray-700 hover:text-[#4D2C5E]">M.tech Colleges</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-40 hidden z-30" onclick="closeSidebar()"></div>
+
+<main class="pt-[8vh] pb-[5rem]">
+  <!-- your content here -->
+
+
+    <section class="text-white p-8 text-center text-4xl font-extrabold shadow-md" style="padding-top: 10%;background-image: url(mtechbg.jpg);">
+     <h2 class="text-6xl md:text-8xl font-extrabold mb-6"
+                style="text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7); color:aliceblue;">
+                Discover Your Best-Fit College
+            </h2>  
+    </section>
+
+    <section class="p-12">
+        <div class="flex flex-col md:flex-row items-center gap-10 bg-white rounded-2xl shadow-xl p-8">
+            <img src="—Pngtree—confused man concept_7418852.png" alt="Confused Doodle" class="doodle-img">
+            <div>
+                <h2 class="text-3xl font-bold mb-4" style="color: #4D2C5E;">Still Unsure Which College Suits You?</h2>
+                <p class="text-lg mb-4" style="font-family: Georgia, 'Times New Roman', Times, serif; color: #4D2C5E;">Let us guide you through discovering your strengths, interests, and the right
+                    courses & colleges that match your potential.</p>
+                <button onclick="openPopup()"
+                    class="bg-pink-500 text-white px-6 py-3 rounded-full shadow hover:bg-pink-600 transition-all duration-300">Start
+                    Your Journey</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="flowchart" class="p-12 bg-gradient-to-br from-yellow-50 to-purple-50">
+        <h3 class="text-2xl font-bold text-center  mb-10" style="color: #4D2C5E;font-size: 7vh;">Know Your Path</h3>
+        <img src="flowchart.png" alt="Flowchart" class="mx-auto max-w-4xl rounded-lg shadow-lg">
+    </section>
+
+    <section class="p-12 bg-white rounded-2xl shadow-md m-6">
+        <h3 class="text-2xl font-bold text-center  mb-8" style="color: #4D2C5E;font-size: 7vh;">Discover Your Interests</h3>
+        <div class="grid md:grid-cols-2 gap-8">
+            <ul class="list-disc pl-6 space-y-4 text-lg" style="color:#4D2C5E;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-size: 4vh;padding-left: 10%;padding-top: 4%;">
+                <li>Take online aptitude tests like <a href="https://www.mindler.com"
+                        class="text-blue-600 underline">Mindler</a></li>
+                <li>Explore subjects you enjoy the most</li>
+                <li>Talk to school counselors or mentors</li>
+                <li>Join workshops or webinars</li>
+            </ul>
+            <img src="https://cdn-icons-png.flaticon.com/512/4140/4140037.png" alt="Interests" class="w-64 mx-auto">
+        </div>
+    </section>
+
+    <section class="p-12 bg-gradient-to-tr from-indigo-100 to-pink-100 rounded-2xl m-6 shadow">
+        <h3 class="text-2xl font-bold text-center  mb-8 " style="color: #4D2C5E;font-size: 7vh;">Watch: How to Pick the Right College</h3>
+        <div class="flex justify-center">
+            <iframe width="700" height="400" src="videoplayback.mp4"
+                title="College Selection Guide" frameborder="0" allowfullscreen class="rounded-xl shadow-lg"></iframe>
+        </div>
+    </section>
+
+    <section class="p-12 bg-white rounded-2xl shadow-md m-6">
+        <h3 class="text-2xl font-bold text-center text-purple-600 mb-8" style="color: #4D2C5E;font-size: 7vh;">Steps to Find the Best Fit</h3>
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+            <ol class="list-decimal pl-6 space-y-4 text-lg" style="color:#4D2C5E;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;font-size: 4vh;padding-left: 10%;padding-top: 4%;">
+                <li>Know your interests and strengths</li>
+                <li>Shortlist courses that align with them</li>
+                <li>Research colleges offering those courses</li>
+                <li>Compare rankings, fees, location, and reviews</li>
+                <li>Reach out to current students or alumni</li>
+            </ol>
+            <img src="Screenshot 2025-05-27 032804.png" alt="Puzzle Teamwork"
+                class="max-w-md mx-auto rounded-xl">
+        </div>
+    </section>
+
+    <section class="text-center p-12 bg-purple-100 rounded-2xl shadow-inner mx-6 mt-10">
+        <h3 class="text-2xl font-bold text-purple-800 mb-6" style="color: #4D2C5E;font-size: 7vh;">Need More Help?</h3>
+        <button onclick="openPopup()"
+            class="bg-purple-700 text-white px-8 py-3 rounded-full hover:bg-purple-800 transition-all duration-300 shadow-lg" style="background-color: rgb(255, 196, 0); color: #4D2C5E;">Get
+            Personalized Guidance</button>
+    </section>
+</main>
+    <!-- Popup Form -->
+    <div id="popupForm" class="popup">
+        <div class="popup-content text-left">
+            <h3 class="text-2xl font-bold text-purple-700 mb-4">Get Personalized Guidance</h3>
+            <form class="space-y-4" onsubmit="event.preventDefault(); alert('Form submitted!'); closePopup();">
+                <input type="text" placeholder="Full Name" required
+                    class="w-full border border-gray-300 rounded px-3 py-2">
+                <input type="email" placeholder="Email Address" required
+                    class="w-full border border-gray-300 rounded px-3 py-2">
+                <input type="tel" placeholder="Phone Number" required
+                    class="w-full border border-gray-300 rounded px-3 py-2">
+                <select class="w-full border border-gray-300 rounded px-3 py-2" required>
+                    <option value="" disabled selected>Select your preferred stream</option>
+                    <option value="science">Science</option>
+                    <option value="commerce">Commerce</option>
+                    <option value="arts">Arts</option>
+                    <option value="engineering">Engineering</option>
+                    <option value="medical">Medical</option>
+                    <option value="law">Law</option>
+                    <option value="other">Other</option>
+                </select>
+                <textarea placeholder="Anything you'd like to share..."
+                    class="w-full border border-gray-300 rounded px-3 py-2"></textarea>
+                <div class="flex justify-between items-center">
+                    <button type="submit"
+                        class="bg-pink-500 text-white px-6 py-2 rounded hover:bg-pink-600 transition">Submit</button>
+                    <button type="button" onclick="closePopup()"
+                        class="text-sm text-gray-500 hover:underline">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="text-white text-center p-4 mt-10 font-medium" style="background-color: #4D2C5E;">
+        &copy; 2025 EduGuide. All rights reserved.
+    </footer>
+
+    <script>
+        function openPopup() {
+            const popup = document.getElementById('popupForm');
+            popup.classList.remove('hidden');
+            popup.classList.add('flex');
+        }
+
+        function closePopup() {
+            const popup = document.getElementById('popupForm');
+            popup.classList.remove('flex');
+            popup.classList.add('hidden');
+        }
+    </script>
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('-translate-x-full');
+            document.getElementById('overlay').classList.toggle('hidden');
+        }
+
+        function closeSidebar() {
+            document.getElementById('sidebar').classList.add('-translate-x-full');
+            document.getElementById('overlay').classList.add('hidden');
+        }
+
+        // Optional: close sidebar when a link is clicked
+        document.querySelectorAll('#sidebar a').forEach(link => {
+            link.addEventListener('click', () => {
+                closeSidebar();
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>

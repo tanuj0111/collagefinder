@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BCA Colleges - OnetickCourses</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .college-card {
+      background-color: white;
+      color: #4d2c5e !important;
+    }
+
+    .py-10,
+    .py-6 {
+      background-color: white;
+    }
+
+    .modal-bg {
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+  <nav style="background-color:#4D2C5E;"
+    class="shadow border-b sticky top-0 z-50 flex items-center justify-between px-4 py-3">
+    <ul class="flex space-x-8 text-sm font-medium">
+      <li><a href="bcaOverview.html" class="text-white">Overview</a></li>
+      <li><a href="bcaSyllabus.html" class="text-white">Syllabus</a></li>
+      <li><a href="bcacolege.html" class="text-white">BCA Colleges</a></li>
+    </ul>
+
+    <button onclick="toggleSidebar()" class="text-white focus:outline-none">
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </nav>
+
+  <div id="sidebar"
+    class="fixed top-0 left-0 h-full w-64 bg-white text-white transform -translate-x-full transition-transform duration-300 z-50 shadow-lg">
+    <div class="p-6">
+      <h2 class="text-2xl font-bold mb-6" style="color: #4D2C5E;">Menu</h2>
+      <ul class="space-y-4">
+        <li><a href="a-main.html" class="hover:underline" style="color: #4D2C5E;">Home</a></li>
+        <li><a href="bcaOverview.html" class="hover:underline" style="color: #4D2C5E;">Overview</a></li>
+        <li><a href="bcaSyllabus.html" class="hover:underline" style="color: #4D2C5E;">Syllabus</a></li>
+        <li><a href="bcacolege.html" class="hover:underline" style="color: #4D2C5E;">BCA Colleges</a></li>
+      </ul>
+      <button onclick="toggleSidebar()" class="mt-8 px-4 py-2 rounded transition"
+        style="background-color: #4D2C5E;">Close</button>
+    </div>
+  </div>
+
+  <div class="flex flex-col lg:flex-row">
+    <aside class="w-full md:w-64 bg-white border-r p-4 space-y-6">
+      <h2 class="text-xl font-bold">Filters</h2>
+      <div>
+        <h3 class="font-semibold mb-2">Budget (₹)</h3>
+        <input type="range" id="budgetRange" min="50000" max="500000" step="10000" value="490000" class="w-full" />
+        <div class="text-sm text-gray-600 mt-1">Up to ₹<span id="budgetValue">490000</span></div>
+      </div>
+      <div>
+        <h3 class="font-semibold mb-2">Course Duration</h3>
+        <label><input type="checkbox" class="durationCheckbox" value="2" /> 2 Years</label><br />
+        <label><input type="checkbox" class="durationCheckbox" value="3" /> 3 Years</label><br />
+        <label><input type="checkbox" class="durationCheckbox" value="4" /> 4 Years</label>
+      </div>
+      <div>
+        <h3 class="font-semibold mb-2">City</h3>
+        <label><input type="checkbox" class="cityCheckbox" value="Noida" /> Noida</label><br />
+        <label><input type="checkbox" class="cityCheckbox" value="Greater Noida" /> Greater Noida</label><br />
+        <label><input type="checkbox" class="cityCheckbox" value="Ghaziabad" /> Ghaziabad</label><br />
+        <label><input type="checkbox" class="cityCheckbox" value="Faridabad" /> Faridabad</label>
+      </div>
+    </aside>
+
+    <div class="w-full lg:w-3/4 p-4">
+      <h2 class="text-4xl font-bold mb-10 text-center">
+        <span class="text-yellow-400" style="font-family: centaur;">T</span><span class="text-[#150136]"
+          style="font-family: centaur;">op </span>
+        <span class="text-yellow-400 " style="font-family: centaur;">M.</span><span class="text-[#150136]"
+          style="font-family: centaur;">Tech</span>
+        <span class="text-yellow-400" style="font-family: centaur;">Co</span><span class="text-[#150136]"
+          style="font-family: centaur;">lleges </span>
+      </h2>
+
+      <div id="collegeList"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6 max-h-[500px] overflow-y-auto">
+        <button data-id="1" class="college-button">
+          <div class="college-card p-6 shadow-md" data-city="Faridabad" data-id="1" data-fee="25000" data-duration="3"
+            style="height: 55vh; width: 50vh; background-color: rgb(236, 206, 225);">
+            <h4 class="text-xl font-bold" style="padding-bottom: 3%;">JB Knowledge Park (JB College), Faridabad
+            </h4>
+            <img src="contactus.png" alt="img" style="height: 25vh; width: 50vh; margin-top: 2%;margin-bottom: 2%;">
+            <p style="text-align: left; margin-top: 3%;"><strong style="text-align: left;">City:</strong> Faridabad</p>
+            <p style="text-align: left;"><strong>Fee:</strong> ₹25000/year to ₹30000</p>
+            <p style="text-align: left;"><strong>Duration:</strong> 3 Years</p>
+          </div>
+        </button>
+
+        <button data-id="2" class="college-button">
+          <div class="college-card p-6 shadow-md" data-city="Faridabad" data-id="2" data-fee="40000" data-duration="3"
+            style="height: 55vh; width: 50vh; background-color: rgb(193, 242, 234);">
+            <h4 class="text-xl font-bold" style="padding-bottom: 3%;"> Rawal Institute of Management (RIM), Faridabad
+            </h4>
+            <img src="mriss.jpg" alt="img" style="height: 25vh; width: 50vh; margin-top: 2%;margin-bottom: 2%;">
+            <p style="text-align: left; margin-top: 3%;"><strong>City:</strong> Faridabad</p>
+            <p style="text-align: left;"><strong>Fee:</strong> ₹40000 to ₹50000/year</p>
+            <p style="text-align: left;"><strong>Duration:</strong> 3 Years</p>
+          </div>
+        </button>
+
+        <button data-id="3" class="college-button">
+          <div class="college-card p-6 shadow-md" data-city="Faridabad" data-id="3" data-fee="29000" data-duration="3"
+            style="height: 55vh; width: 50vh; background-color: rgb(253, 238, 115);">
+            <h4 class="text-xl font-bold" style="padding-bottom: 13%;">Echelon Institute of Technology</h4>
+            <img src="echlon.jpg" alt="img" style="height: 25vh; width: 50vh; margin-top: 2%;margin-bottom: 2%;">
+            <p style="text-align: left; margin-top: 3%;"><strong>City:</strong> Faridabad</p>
+            <p style="text-align: left;"><strong>Fee:</strong> ₹29000 to ₹23400/year</p>
+            <p style="text-align: left;"><strong>Duration:</strong> 3 Years</p>
+          </div>
+        </button>
+
+        <button data-id="4" class="college-button">
+          <div class="college-card p-6 shadow-md" data-city="Faridabad" data-id="4" data-fee="34000" data-duration="3"
+            style="height: 55vh; width: 50vh;">
+            <h4 class="text-xl font-bold" style="padding-bottom: 3%;">Aravali College of Engineering and
+              Management,Faridabad
+            </h4>
+            <img src="aravli.jpg" alt="img" style="height: 25vh; width: 50vh; margin-top: 2%;margin-bottom: 2%;">
+            <p style="text-align: left; margin-top: 3%;"><strong>City:</strong> Faridabad</p>
+            <p style="text-align: left;"><strong>Fee:</strong> ₹35000 to ₹45000</p>
+            <p style="text-align: left;"><strong>Duration:</strong> 3 Years</p>
+          </div>
+        </button>
+
+        <button data-id="5" class="college-button">
+          <div class="college-card p-6 shadow-md" data-city="Faridabad" data-id="5" data-fee="170000" data-duration="3"
+            style="height: 55vh; width: 50vh;">
+            <h4 class="text-xl font-bold" style="padding-bottom: 3%;">Institute of Management and Technology (IMT),
+              Faridabad
+            </h4>
+            <img src="alfalah.jpg" alt="img" style="height: 25vh; width: 50vh; margin-top: 2%;margin-bottom: 2%;">
+            <p style="text-align: left; margin-top: 3%;"><strong>City:</strong> Faridabad</p>
+            <p style="text-align: left;"><strong>Fee:</strong> ₹135000 to ₹140000</p>
+            <p style="text-align: left;"><strong>Duration:</strong> 3 Years</p>
+          </div>
+        </button>
+
+        <button data-id="6" class="college-button">
+          <div class="college-card p-6 shadow-md" data-city="Palwal" data-id="6" data-fee="50000" data-duration="3"
+            style="height: 55vh; width: 50vh;">
+            <h4 class="text-xl font-bold" style="padding-bottom: 13%;"> Advanced Institute of Technology and Management
+              (AITM), Palwal</h4>
+            <img src="lingyas.jpg" alt="img" style="height: 25vh; width: 50vh; margin-top: 2%;margin-bottom: 2%;">
+            <p style="text-align: left; margin-top: 3%;"><strong>City:</strong> palwal</p>
+            <p style="text-align: left;"><strong>Fee:</strong> ₹50000/year</p>
+            <p style="text-align: left;"><strong>Duration:</strong> 3 Years</p>
+          </div>
+        </button>
+
+        <button data-id="7" class="college-button">
+          <div class="college-card p-6 shadow-md" data-city="palwal" data-id="7" data-fee="70000" data-duration="3"
+            style="height: 55vh; width: 50vh; ">
+            <h4 class="text-xl font-bold" style="padding-bottom: 3%;">Modern Vidya Niketan (MVN) University, Palwal</h4>
+            <img src="anagpur.jpg" alt="img" style="height: 25vh; width: 50vh; margin-top: 2%;margin-bottom: 2%;">
+            <p style="text-align: left; margin-top: 3%;"><strong>City:</strong> palwal</p>
+            <p style="text-align: left;"><strong>Fee:</strong> ₹74000 to ₹80000</p>
+            <p style="text-align: left;"><strong>Duration:</strong> 4 Years</p>
+          </div>
+        </button>
+        <button data-id="8" class="college-button">
+          <div class="college-card p-6 shadow-md" data-city="Palwal" data-id="8" data-fee="170000" data-duration="3"
+            style="height: 55vh; width: 50vh; ">
+            <h4 class="text-xl font-bold" style="padding-bottom: 3%;">NGF College of Engineering and Technology (NGFCET),palwal
+            </h4>
+            <img src="ngf.jpg" alt="img" style="height: 25vh; width: 50vh; margin-top: 2%;margin-bottom: 2%;">
+            <p style="text-align: left; margin-top: 3%;"><strong>City:</strong> Palwal</p>
+            <p style="text-align: left;"><strong>Fee:</strong> ₹165000 to ₹170000</p>
+            <p style="text-align: left;"><strong>Duration:</strong> 3 Years</p>
+          </div>
+        </button>
+        <button data-id="9" class="college-button">
+          <div class="college-card p-6 shadow-md" data-city="Palwal" data-id="9" data-fee="125000" data-duration="3"
+            style="height: 55vh; width: 50vh; ">
+            <h4 class="text-xl font-bold" style="padding-bottom: 3%;">Advanced College of Technology and Management (ACTM), Palwal
+</h4>
+            <img src="aitm.jpg" alt="img" style="height: 25vh; width: 50vh; margin-top: 2%;margin-bottom: 2%;">
+            <p style="text-align: left; margin-top: 3%;"><strong>City:</strong> Palwal</p>
+            <p style="text-align: left;"><strong>Fee:</strong> ₹125000</p>
+            <p style="text-align: left;"><strong>Duration:</strong> 3 Years</p>
+          </div>
+        </button>
+        <button data-id="10" class="college-button">
+          <div class="college-card p-6 shadow-md" data-city="Palwal" data-id="10" data-fee="135000" data-duration="3"
+            style="height: 55vh; width: 50vh; ">
+            <h4 class="text-xl font-bold" style="padding-bottom: 3%;">Shri Ram College of Engineering and Management (SRCEM), Palwal</h4>
+            <img src="satya.jpg" alt="img" style="height: 25vh; width: 50vh; margin-top: 2%;margin-bottom: 2%;">
+            <p style="text-align: left; margin-top: 3%;"><strong>City:</strong> Palwal</p>
+            <p style="text-align: left;"><strong>Fee:</strong> ₹135000</p>
+            <p style="text-align: left;"><strong>Duration:</strong> 3 Years</p>
+          </div>
+        </button>
+        <button data-id="11" class="college-button">
+          <div class="college-card p-6 shadow-md" data-city="Palwal" data-id="11" data-fee="342000 " data-duration="3"
+            style="height: 55vh; width: 50vh; ">
+            <h4 class="text-xl font-bold" style="padding-bottom: 3%;">MVN University, School of Engineering & Technology
+            </h4>
+            <img src="mvn.jpg" alt="img" style="height: 25vh; width: 50vh; margin-top: 2%;margin-bottom: 2%;">
+            <p style="text-align: left; margin-top: 3%;"><strong>City:</strong> Palwal</p>
+            <p style="text-align: left;"><strong>Fee:</strong> INR 3,42,000 and INR 4,72,800</p>
+            <p style="text-align: left;"><strong>Duration:</strong> 4 Years</p>
+          </div>
+        </button>
+        <button data-id="12" class="college-button">
+          <div class="college-card p-6 shadow-md" data-city="Noida" data-id="12" data-fee="103100 " data-duration="3"
+            style="height: 55vh; width: 50vh; ">
+            <h4 class="text-xl font-bold" style="padding-bottom: 3%;">Noida Institute of Engineering and Technology
+              (NIET)</h4>
+            <img src="niet.jpg" alt="img" style="height: 25vh; width: 50vh; margin-top: 2%;margin-bottom: 2%;">
+            <p style="text-align: left; margin-top: 3%;"><strong>City:</strong> Noida</p>
+            <p style="text-align: left;"><strong>Fee:</strong> ₹1,03,100 to ₹1,18,400</p>
+            <p style="text-align: left;"><strong>Duration:</strong> 4 Years</p>
+          </div>
+        </button>
+        <button data-id="13" class="college-button">
+          <div class="college-card p-6 shadow-md" data-city="Noida" data-id="13" data-fee="190000 " data-duration="3"
+            style="height: 55vh; width: 50vh; ">
+            <h4 class="text-xl font-bold" style="padding-bottom: 3%;">GL Bajaj Institute of Technology and Management
+            </h4>
+            <img src="gl.jpg" alt="img" style="height: 25vh; width: 50vh; margin-top: 2%;margin-bottom: 2%;">
+            <p style="text-align: left; margin-top: 3%;"><strong>City:</strong> Noida</p>
+            <p style="text-align: left;"><strong>Fee:</strong> ₹ 1.90L to 2.10L</p>
+            <p style="text-align: left;"><strong>Duration:</strong> 4 Years</p>
+          </div>
+        </button>
+        <button data-id="14" class="college-button">
+          <div class="college-card p-6 shadow-md" data-city="Noida" data-id="14" data-fee="120000 " data-duration="3"
+            style="height: 55vh; width: 50vh; ">
+            <h4 class="text-xl font-bold" style="padding-bottom: 3%;">Jaypee Institute of Information Technology (JIIT)
+            </h4>
+            <img src="jp.jpg" alt="img" style="height: 25vh; width: 50vh; margin-top: 2%;margin-bottom: 2%;">
+            <p style="text-align: left; margin-top: 3%;"><strong>City:</strong> Noida</p>
+            <p style="text-align: left;"><strong>Fee:</strong> ₹1,20,000 to ₹1,60,000</p>
+            <p style="text-align: left;"><strong>Duration:</strong> 4 Years</p>
+          </div>
+        </button>
+        <button data-id="15" class="college-button">
+          <div class="college-card p-6 shadow-md" data-city="Noida" data-id="15" data-fee="120000 " data-duration="3"
+            style="height: 55vh; width: 50vh; ">
+            <h4 class="text-xl font-bold" style="padding-bottom: 3%;">JSS Academy of Technical Education (JSSATE) </h4>
+            <img src="jss.jpg" alt="img" style="height: 25vh; width: 50vh; margin-top: 2%;margin-bottom: 2%;">
+            <p style="text-align: left; margin-top: 3%;"><strong>City:</strong> Noida</p>
+            <p style="text-align: left;"><strong>Fee:</strong> ₹ 3.05 L to 10.46 L</p>
+            <p style="text-align: left;"><strong>Duration:</strong> 4 Years</p>
+          </div>
+        </button>
+
+      </div>
+      <p id="noResultsMessage" class="text-center text-gray-600 text-lg my-4 hidden">
+        Oops! No colleges found matching your criteria.
+      </p>
+    </div>
+  </div>
+  <!-- info form -->
+  <div id="formModal" class="fixed inset-0 flex items-center justify-center modal-bg z-50 hidden">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-96 relative">
+      <h2 class="text-xl font-bold mb-4">Apply Now</h2>
+      <button onclick="closeAllPopups()"
+        class="absolute top-2 right-2 text-xl text-gray-500 hover:text-red-500 font-bold">✖</button>
+      <form id="collegeForm">
+        <input type="text" placeholder="Name" required class="w-full border mb-2 p-2 rounded" />
+        <input type="email" placeholder="Email" required class="w-full border mb-2 p-2 rounded" />
+        <input type="tel" placeholder="Phone Number" required class="w-full border mb-2 p-2 rounded" />
+        <select class="w-full border mb-4 p-2 rounded" required>
+          <option value="">Select Stream</option>
+          <option value="B.Tech">B.Tech</option>
+          <option value="M.Tech">M.Tech</option>
+          <option value="BCA">BCA</option>
+          <option value="MCA">MCA</option>
+        </select>
+        <button type="submit" class="w-full bg-purple-700 text-white py-2 rounded">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="thankYouModal" class="fixed inset-0 flex items-center justify-center modal-bg z-50 hidden">
+    <div class="bg-white p-6 rounded-lg shadow-lg text-center relative">
+      <h2 class="text-2xl font-bold mb-2 text-green-600">Thank You!</h2>
+      <p>We received your application.</p>
+      <button onclick="closeAllPopups()"
+        class="absolute top-2 right-2 text-xl text-gray-500 hover:text-red-500 font-bold">✖</button>
+    </div>
+  </div>
+
+  <div id="infoModal" class="fixed inset-0 flex items-center justify-center modal-bg z-50 hidden overflow-x-auto">
+    <div class="bg-white p-6 rounded-lg shadow-lg overflow-y-auto" style="height: 80vh; width: 80vh;">
+      <h2 id="modalCollegeName" class="text-xl font-bold mb-4 text-purple-700"></h2>
+      <img id="modalCollegeImage" src="" alt="College Image" class="mb-4">
+      <p><strong>City:</strong> <span id="modalCollegeCity"></span></p>
+      <p><strong>Fee:</strong> <span id="modalCollegeFee"></span></p>
+      <p><strong>Duration:</strong> <span id="modalCollegeDuration"></span></p>
+      <p><strong>Placed Students:</strong> <span id="modalCollegePlaced"></span></p>
+      <p><strong>Approvals:</strong> <span id="modalCollegeApprovals"></span></p>
+      <p><strong>Average Package:</strong> <span id="modalCollegeAveragePackage"></span></p>
+      <p><strong>Highest Package:</strong> <span id="modalCollegeHighestPackage"></span></p>
+      <p><strong>Top Recruiters:</strong> <span id="modalCollegeRecruiters"></span></p>
+      <p><strong>B.Tech Streams Available:</strong> <span id="modalCollegeStreams"></span></p>
+      <p id="modalCollegeDescription"></p>
+      <button onclick="closeAllPopups()" class="mt-4 w-full bg-purple-700 text-white py-2 rounded">Close</button>
+    </div>
+  </div>
+
+
+  <footer style="background-color: #4d2c5e;" class="text-white text-center p-4 mt-10">
+    <p>&copy; 2025 OnetickCourses. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // College Data (centralized information)
+    const collegeData = {
+      1: {
+        name: "JB Knowledge Park (JB College), Faridabad",
+        city: "Faridabad",
+        fee: "₹25000/year to ₹30000",
+        duration: "3 Years",
+        image: "AI.jpg",
+        placedStudents: "Approximately 90%",
+        approvals: "AICTE, NAAC A+",
+        averagePackage: "₹4.8 LPA",
+        highestPackage: "₹18 LPA",
+        topRecruiters: "Infosys, TCS, Deloitte, Accenture, HDFC Bank, Wipro, Amazon, Tech Mahindra",
+        description: "JB Knowledge Park is renowned for its robust placement record and industry-aligned curriculum. The BCA program is designed to provide students with a strong foundation in computer applications, preparing them for the evolving IT industry."
+      },
+      2: {
+        name: " Rawal Institute of Management (RIM), Faridabad",
+        city: "Faridabad",
+        fee: "₹40000 to ₹50000/year",
+        duration: "3 Years",
+        image: "mriss.jpg",
+        placedStudents: "Approximately 85%",
+        approvals: "AICTE",
+        averagePackage: "₹5.8 LPA",
+        highestPackage: "₹11 LPA",
+        topRecruiters: " Accenture, Wipro, EY, Cognizant, IBM, TCS",
+        description: "RIM offers a BCA program that focuses on developing students' technical and analytical skills. The institute's strong industry ties facilitate excellent placement opportunities for its graduates. "
+      },
+      3: {
+        name: "Echelon Institute of Technology",
+        city: "Faridabad",
+        fee: "₹29000 to ₹23000/year",
+        duration: "3 Years",
+        image: "echlon.jpg",
+        placedStudents: "Approximately 90%",
+        approvals: "AICTE",
+        averagePackage: "₹5.3 LPA",
+        highestPackage: "₹50 LPA",
+        topRecruiters: "Samsung, Maruti Suzuki, Tata, INTEX, Infosys",
+        description: "Echelon Institute of Technology offers a comprehensive BCA program with a focus on practical learning and industry exposure. The institute's strong placement record reflects its commitment to student success. "
+      },
+      4: {
+        name: "Aravali College of Engineering and Management",
+        city: "Faridabad",
+        fee: "₹35000 to ₹45000",
+        duration: "3 Years",
+        image: "aravli.jpg",
+        placedStudents: "Approximately 80%",
+        approvals: "AICTE",
+        averagePackage: "₹2.5 LPA",
+        highestPackage: "₹10 LPA",
+        topRecruiters: "TCS, Wipro",
+        description: "Aravali College offers a BCA program designed to equip students with the necessary skills in computer applications. The college emphasizes practical training and has established connections with leading IT companies."
+      },
+      5: {
+        name: "Institute of Management and Technology (IMT), Faridabad",
+        city: "Faridabad",
+        fee: "₹135000 to ₹140000",
+        duration: "3 Years",
+        image: "alfalah.jpg",
+        placedStudents: "Approximately 20%",
+        approvals: "AICTE",
+        averagePackage: "₹2.5LPA",
+        highestPackage: "₹3.5LPA",
+        topRecruiters: "TCS,Wipro",
+        description: "IMT offers a BCA program aimed at providing students with a solid foundation in computer applications. While the placement percentage is relatively lower, the institute is working towards enhancing "
+      },
+      6: {
+        name: " Advanced Institute of Technology and Management (AITM), Palwal",
+        city: "palwal",
+        fee: "₹50000/year",
+        duration: "3 Years",
+        image: "lingyas.jpg",
+        placedStudents: "Approximately 75%",
+        Availability: 'Yes (Regular BCA and BCA in Data Science)',
+        approvals: "AICTE, MHRD (Govt. of India), DTE (Haryana)",
+        averagePackage: "₹2.0 LPA",
+        highestPackage: "₹5 LPA",
+        Affiliation: 'J.C. Bose University of Science & Technology, YMCA, Faridabad',
+        topRecruiters: "TCS, HCL, Wipro,IMB,Infosys",
+        description: "Established in 2006, AITM is a premier institute in Palwal offering quality education in various disciplines. The BCA program is designed to provide students with a strong foundation in computer applications, with a focus on practical skills and industry exposure. The institute's dedicated placement cell ensures that students are well-prepared for the job market through regular training sessions and workshops."
+      },
+      7: {
+        name: "Modern Vidya Niketan (MVN) University, Palwal",
+        city: "Faridabad",
+        fee: "₹74000 to ₹80000",
+        duration: "3 Years",
+        image: "anagpur.jpg",
+        placedStudents: "Approximately 80%",
+        approvals: "AICTE, UGC",
+        Affiliation: 'Self-financed Private University',
+        BCAAvailability: 'Yes',
+        averagePackage: "₹2.2 LPA",
+        highestPackage: "₹6 LPA",
+        topRecruiters: "HCL Technologies, Infosys, Google, TCS, IBM, Mahindra & Mahindra",
+        
+        description: "MVN University offers a comprehensive BCA program aimed at equipping students with the necessary skills in computer applications. The university emphasizes a blend of theoretical knowledge and practical experience, preparing students for various roles in the IT industry. The placement cell actively collaborates with leading companies to facilitate recruitment drives on campus. "
+      },
+      8: {
+        name: "NGF College of Engineering and Technology (NGFCET),palwal",
+        city: "palwal",
+        fee: "₹165000 to ₹170000",
+        duration: "3 Years",
+        image: "anagpur.jpg",
+        placedStudents: "data not specified",
+        approvals: "AICTE, DTE(Haryana)",
+        Affiliation: 'J.C. Bose University of Science & Technology, YMCA, Faridabad',
+        BCAAvailability: 'Yes',
+        averagePackage: "data not specified",
+        highestPackage: "data not specified",
+        topRecruiters: " data not specified",
+        
+        description: "NGFCET offers a BCA program focused on imparting fundamental knowledge in computer applications. The curriculum is designed to meet industry standards, and the institute provides necessary infrastructure and faculty support to ensure quality education.   "
+      },
+      9: {
+        name: "Advanced College of Technology and Management (ACTM), Palwal ",
+        city: "palwal",
+        fee: "₹120000 to ₹125000",
+        duration: "3 Years",
+        image: "anagpur.jpg",
+        placedStudents: "data not specified",
+        approvals: "AICTE",
+        Affiliation: 'data not specified',
+        BCAAvailability: 'Yes',
+        averagePackage: "data not specified",
+        highestPackage: "data not specified",
+        topRecruiters: "data not specified ",
+        
+        description: " ACTM offers a BCA program aimed at providing students with a solid foundation in computer applications. The college focuses on delivering quality education through experienced faculty and adequate facilities. "
+      },
+      10: {
+        name: "Shri Ram College of Engineering and Management (SRCEM), Palwal",
+        city: "palwal",
+        fee: "₹130000 to ₹135000",
+        duration: "3 Years",
+        image: "anagpur.jpg",
+        placedStudents: "Approximately 80%",
+        approvals: "AICTE",
+        Affiliation: ' data not specified',
+        BCAAvailability: 'Yes',
+        averagePackage: "data not specified",
+        highestPackage: "data not specified",
+        topRecruiters: "data not specified ",
+        
+        description: " SRCEM offers a BCA program designed to equip students with essential skills in computer applications. The college emphasizes practical learning and industry exposure to prepare students for the IT sector.  "
+      },
+      11: {
+        name: "Modern Vidya Niketan (MVN) University, Palwal",
+        city: "Faridabad",
+        fee: "₹74000 to ₹80000",
+        duration: "3 Years",
+        image: "anagpur.jpg",
+        placedStudents: "Approximately 80%",
+        approvals: "AICTE, UGC",
+        Affiliation: 'Self-financed Private University',
+        BCAAvailability: 'Yes',
+        averagePackage: "₹2.2 LPA",
+        highestPackage: "₹6 LPA",
+        topRecruiters: " ",
+        
+        description: "  "
+      },
+      
+
+      // Add other colleges here with their full data following the same structure
+    };
+
+    let selectedCollegeId = null; // Variable to store the ID of the clicked college
+
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('-translate-x-full');
+    }
+
+    function applyFilters() {
+      const maxBudget = parseInt(document.getElementById('budgetRange').value);
+      const selectedDurations = Array.from(document.querySelectorAll('.durationCheckbox:checked')).map(cb => cb.value);
+      const selectedCities = Array.from(document.querySelectorAll('.cityCheckbox:checked')).map(cb => cb.value);
+      const cards = document.querySelectorAll('.college-card');
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const fee = parseInt(card.dataset.fee);
+        const city = card.dataset.city;
+        const duration = card.dataset.duration;
+
+        const matchBudget = fee <= maxBudget;
+        const matchCity = selectedCities.length === 0 || selectedCities.includes(city);
+        const matchDuration = selectedDurations.length === 0 || selectedDurations.includes(duration);
+
+        if (matchBudget && matchCity && matchDuration) {
+          card.parentElement.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.parentElement.classList.add('hidden');
+        }
+      });
+
+      document.getElementById('noResultsMessage').classList.toggle('hidden', visibleCount !== 0);
+    }
+
+    document.getElementById('budgetRange').addEventListener('input', function () {
+      document.getElementById('budgetValue').innerText = this.value;
+      applyFilters();
+    });
+
+    document.querySelectorAll('.durationCheckbox, .cityCheckbox').forEach(cb => {
+      cb.addEventListener('change', applyFilters);
+    });
+
+    applyFilters(); // Apply filters on initial load
+
+    // --- Logic for College Click and Modals ---
+
+    // Event listener for all college buttons
+    document.querySelectorAll('.college-button').forEach(button => {
+      button.addEventListener('click', () => {
+        selectedCollegeId = button.dataset.id; // Get the ID from the button's data-id
+        // Check if the form has been submitted before (using localStorage)
+        if (localStorage.getItem('formSubmitted')) {
+          showCollegeDetails(selectedCollegeId);
+        } else {
+          openFormPopup();
+        }
+      });
+    });
+
+    function openFormPopup() {
+      document.getElementById('formModal').classList.remove('hidden');
+    }
+
+    document.getElementById('collegeForm').addEventListener('submit', function (e) {
+      e.preventDefault(); // Prevent default form submission
+
+      // Validate form fields
+      const name = document.querySelector('#collegeForm input[type="text"]').value.trim();
+      const email = document.querySelector('#collegeForm input[type="email"]').value.trim();
+      const phone = document.querySelector('#collegeForm input[type="tel"]').value.trim();
+      const stream = document.querySelector('#collegeForm select').value;
+
+      if (name && email && phone && stream) {
+        // Set a flag in localStorage indicating the form has been submitted
+        localStorage.setItem('formSubmitted', 'true');
+
+        document.getElementById('formModal').classList.add('hidden'); // Hide the form modal
+        document.getElementById('thankYouModal').classList.remove('hidden'); // Show thank you message
+
+        // Automatically hide thank you and show college details after a delay
+        setTimeout(() => {
+          document.getElementById('thankYouModal').classList.add('hidden'); // Hide thank you
+          showCollegeDetails(selectedCollegeId); // Show college details after a delay
+        }, 1500); // 1.5 seconds delay for thank you message
+      } else {
+        alert('Please fill in all form fields.');
+      }
+    });
+
+    function showCollegeDetails(id) {
+      const college = collegeData[id];
+      if (college) {
+        // Populate the info modal with dynamic data
+        document.getElementById('modalCollegeName').textContent = college.name;
+        document.getElementById('modalCollegeImage').src = college.image;
+        document.getElementById('modalCollegeCity').textContent = college.city;
+        document.getElementById('modalCollegeFee').textContent = college.fee;
+        document.getElementById('modalCollegeDuration').textContent = college.duration;
+        document.getElementById('modalCollegePlaced').textContent = college.placedStudents;
+        document.getElementById('modalCollegeApprovals').textContent = college.approvals;
+        document.getElementById('modalCollegeAveragePackage').textContent = college.averagePackage;
+        document.getElementById('modalCollegeHighestPackage').textContent = college.highestPackage;
+        document.getElementById('modalCollegeRecruiters').textContent = college.topRecruiters;
+        document.getElementById('modalCollegeStreams').textContent = college.streams;
+        document.getElementById('modalCollegeDescription').textContent = college.description;
+
+        document.getElementById('infoModal').classList.remove('hidden'); // Show the info modal
+      } else {
+        console.error('College data not found for ID:', id);
+        alert('College information not available.');
+      }
+    }
+
+    function closeAllPopups() {
+      // This function now closes ALL modals.
+      document.getElementById('formModal').classList.add('hidden');
+      document.getElementById('thankYouModal').classList.add('hidden');
+      document.getElementById('infoModal').classList.add('hidden');
+    }
+  </script>
+</body>
+
+</html>

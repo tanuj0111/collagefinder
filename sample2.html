@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>B.Tech Colleges - OnetickCourses</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .college-card {
+      background-color: white;
+      color: #4d2c5e !important;
+    }
+
+    .py-10,
+    .py-6 {
+      background-color: white;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Navbar -->
+<nav style="background-color:#4D2C5E;" class="bg-white shadow border-b sticky top-0 z-50 flex items-center justify-between px-4 py-3">
+  <ul class="flex space-x-8 text-sm font-medium">
+    <li><a href="m.techoverview.html" class="text-white">Overview</a></li>
+    <li><a href="mtechSyllabusfinal.html" class="text-white">Syllabus</a></li>
+    <li><a href="mtechcolege.html" class="text-white">M-Tech Colleges</a></li>
+  </ul>
+
+  <!-- Hamburger icon -->
+  <button onclick="toggleSidebar()" class="text-white focus:outline-none">
+    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M4 6h16M4 12h16M4 18h16"></path>
+    </svg>
+  </button>
+</nav>
+
+<!-- Sidebar -->
+<div id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-white text-white transform -translate-x-full transition-transform duration-300 z-50 shadow-lg">
+  <div class="p-6">
+    <h2 class="text-2xl font-bold mb-6" style="color: #4D2C5E;">Menu</h2>
+    <ul class="space-y-4">
+      <li><a href="a-main.html" class="hover:underline"style="color: #4D2C5E;">Home</a></li>
+      <li><a href="m.techoverview.html" class="hover:underline" style="color: #4D2C5E;">Overview</a></li>
+      <li><a href="mtechSyllabusfinal.html" class="hover:underline"style="color: #4D2C5E;">Syllabus</a></li>
+      <li><a href="mtechcolege.html" class="hover:underline"style="color: #4D2C5E;">M-Tech Colleges</a></li>
+    </ul>
+    <button onclick="toggleSidebar()" class="mt-8 px-4 py-2 bg-pink-500 rounded hover:bg-pink-600 transition" style="background-color: #4D2C5E;">Close</button>
+  </div>
+</div>
+
+<!-- JavaScript to toggle sidebar -->
+<script>
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('-translate-x-full');
+  }
+</script>
+
+
+  <!-- Filters and College List -->
+  <div class="flex flex-col lg:flex-row">
+
+    <!-- Sidebar Filter Section -->
+    <aside class="w-full md:w-64 bg-white border-r p-4 space-y-6">
+      <h2 class="text-xl font-bold">Filters</h2>
+
+      <!-- Budget Filter -->
+      <div>
+        <h3 class="font-semibold mb-2">Budget (₹)</h3>
+        <input type="range" id="budgetRange" min="50000" max="300000" step="10000" value="150000" class="w-full" />
+        <div class="text-sm text-gray-600 mt-1">Up to ₹<span id="budgetValue">150000</span></div>
+      </div>
+
+      <!-- Course Duration Filter -->
+      <div>
+        <h3 class="font-semibold mb-2">Course Duration</h3>
+        <div class="space-y-1 text-sm text-gray-700">
+          <label><input type="checkbox" class="durationCheckbox" value="2" /> 2 Years</label><br />
+          <label><input type="checkbox" class="durationCheckbox" value="3" /> 3 Years</label><br />
+          <label><input type="checkbox" class="durationCheckbox" value="4" /> 4 Years</label>
+        </div>
+      </div>
+
+      <!-- City Filter -->
+      <div>
+        <h3 class="font-semibold mb-2">City</h3>
+        <div class="space-y-1 text-sm text-gray-700">
+          <label><input type="checkbox" class="cityCheckbox" value="Noida" /> Noida</label><br />
+          <label><input type="checkbox" class="cityCheckbox" value="Greater Noida" /> Greater Noida</label><br />
+          <label><input type="checkbox" class="cityCheckbox" value="Ghaziabad" /> Ghaziabad</label><br />
+          <label><input type="checkbox" class="cityCheckbox" value="Faridabad" /> Faridabad</label>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Colleges Grid -->
+    <div class="w-full lg:w-3/4 p-4">
+      <h2 class="text-4xl font-bold mb-10 text-center">
+  <span class="text-yellow-400" style="font-family: centaur;">T</span><span class="text-[#150136]"style="font-family: centaur;">op </span>
+  <span class="text-yellow-400 " style="font-family: centaur;">M.</span><span class="text-[#150136]"style="font-family: centaur;">Tech</span>
+  <span class="text-yellow-400" style="font-family: centaur;">Co</span><span class="text-[#150136]"style="font-family: centaur;">lleges </span>
+
+</h2>
+<!-- Popup Form Modal -->
+<div id="popupForm" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+  <div class="bg-white p-6 rounded-lg w-full max-w-md relative">
+    <button id="closePopup" class="absolute top-2 right-3 text-gray-500 text-xl font-bold">×</button>
+    <h2 class="text-2xl font-bold mb-4">Student Information</h2>
+    <form id="studentForm" class="space-y-4">
+      <input type="text" placeholder="Name" class="w-full border p-2 rounded" required>
+      <input type="email" placeholder="Email" class="w-full border p-2 rounded" required>
+      <input type="tel" placeholder="Phone Number" class="w-full border p-2 rounded" required>
+      <select class="w-full border p-2 rounded" required>
+        <option value="" disabled selected>Select Stream</option>
+        <option value="B.Tech">B.Tech</option>
+        <option value="M.Tech">M.Tech</option>
+        <option value="BCA">BCA</option>
+        <option value="MCA">MCA</option>
+      </select>
+      <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Submit</button>
+    </form>
+  </div>
+</div>
+<!-- college info popup -->
+<!-- <div id="collegeInfoPopup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+  <div class="bg-white p-6 rounded-lg overflow-y-auto relative" style="width: 746px; height: 567px;">
+    <button id="closeCollegeInfo" class="absolute top-2 right-3 text-gray-500 text-xl font-bold">×</button>
+    <div id="collegeInfoContent" class="space-y-4">
+
+
+
+    
+    </div>
+  </div>
+</div>
+
+<!-- College Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
+  <!-- Copy your college buttons here -->
+  <button class="college-button" id="abc-tech">
+  <div class="college-card p-6 shadow-md">
+    <h4 class="text-xl font-bold">ABC Institute of Tech</h4>
+    <img src="download.jpg" alt="img">
+    <p><strong>Description:</strong> Lorem ipsum dolor sit amet...</p>
+    <p><strong>City:</strong> Noida</p>
+    <p><strong>Fee:</strong> ₹1,00,000/year</p>
+    <p><strong>Duration:</strong> 3 Years</p>
+  </div>
+</button>
+
+
+
+     
+       
+       <button>
+          <div class="college-card p-6 shadow-md" data-city="Noida" data-fee="100000" data-duration="3" data-popup-id="abc-tech">
+            <h4 class="text-xl font-bold">ABC Institute of Tech</h4>
+            <img src="download.jpg" alt="img">
+            <p><strong>Description:</strong> Lorem ipsum dolor sit amet...</p>
+            <p><strong>City:</strong> Noida</p>
+            <p><strong>Fee:</strong> ₹1,00,000/year</p>
+            <p><strong>Duration:</strong> 3 Years</p>
+          </div>
+        </button>
+
+<button>
+          <div class="college-card p-6 shadow-md" data-city="Noida" data-fee="100000" data-duration="3">
+            <h4 class="text-xl font-bold">ABC Institute of Tech</h4>
+            <img src="download.jpg" alt="img">
+            <p><strong>Description:</strong> Lorem ipsum dolor sit amet...</p>
+            <p><strong>City:</strong> Noida</p>
+            <p><strong>Fee:</strong> ₹1,00,000/year</p>
+            <p><strong>Duration:</strong> 3 Years</p>
+          </div>
+        </button>
+
+
+        <button>
+          <div class="college-card p-6 shadow-md" data-city="Ghaziabad" data-fee="150000" data-duration="4">
+            <h4 class="text-xl font-bold">DEF Engineering College</h4>
+            <img src="download.jpg" alt="img">
+            <p><strong>Description:</strong> Lorem ipsum dolor sit amet...</p>
+            <p><strong>City:</strong> Ghaziabad</p>
+            <p><strong>Fee:</strong> ₹1,50,000/year</p>
+            <p><strong>Duration:</strong> 4 Years</p>
+          </div>
+        </button>
+        <button>
+          <div class="college-card p-6 shadow-md" data-city="Ghaziabad" data-fee="150000" data-duration="4">
+            <h4 class="text-xl font-bold">DEF Engineering College</h4>
+            <img src="download.jpg" alt="img">
+            <p><strong>Description:</strong> Lorem ipsum dolor sit amet...</p>
+            <p><strong>City:</strong> Ghaziabad</p>
+            <p><strong>Fee:</strong> ₹1,50,000/year</p>
+            <p><strong>Duration:</strong> 4 Years</p>
+          </div>
+        </button>
+        <button>
+          <div class="college-card p-6 shadow-md" data-city="Ghaziabad" data-fee="150000" data-duration="4">
+            <h4 class="text-xl font-bold">DEF Engineering College</h4>
+            <img src="download.jpg" alt="img">
+            <p><strong>Description:</strong> Lorem ipsum dolor sit amet...</p>
+            <p><strong>City:</strong> Ghaziabad</p>
+            <p><strong>Fee:</strong> ₹1,50,000/year</p>
+            <p><strong>Duration:</strong> 4 Years</p>
+          </div>
+        </button>
+
+      </div>
+      <p id="noResultsMessage" class="text-center text-gray-600 text-lg my-4 hidden">
+        Oops! No colleges found matching your criteria.
+      </p>
+    </div>
+  </div>
+<!-- Thank You Popup -->
+<div id="thankYouPopup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50 transition-opacity duration-1000">
+  <div class="bg-white p-6 rounded-lg w-full max-w-sm text-center">
+    <h2 class="text-2xl font-bold mb-2">Thank You!</h2>
+    <p>Your information has been submitted successfully.</p>
+  </div>
+</div>
+
+  <!-- Footer -->
+  <footer style="background-color:  #4d2c5e;" class="text-white text-center p-4 mt-10 ">
+    <p>&copy; 2025 OnetickCourses. All rights reserved.</p>
+  </footer>
+<!-- filter script -->
+  <script>
+    function applyFilters() {
+      const maxBudget = parseInt(document.getElementById('budgetRange').value);
+      const selectedDurations = Array.from(document.querySelectorAll('.durationCheckbox:checked')).map(cb => cb.value);
+      const selectedCities = Array.from(document.querySelectorAll('.cityCheckbox:checked')).map(cb => cb.value);
+      const cards = document.querySelectorAll('.college-card');
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const fee = parseInt(card.dataset.fee);
+        const city = card.dataset.city;
+        const duration = card.dataset.duration;
+
+        const matchBudget = fee <= maxBudget;
+        const matchCity = selectedCities.length === 0 || selectedCities.includes(city);
+        const matchDuration = selectedDurations.length === 0 || selectedDurations.includes(duration);
+
+        if (matchBudget && matchCity && matchDuration) {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      document.getElementById('noResultsMessage').classList.toggle('hidden', visibleCount !== 0);
+    }
+
+    // Event Listeners
+    document.getElementById('budgetRange').addEventListener('input', function () {
+      document.getElementById('budgetValue').innerText = this.value;
+      applyFilters();
+    });
+
+    document.querySelectorAll('.durationCheckbox, .cityCheckbox').forEach(cb => {
+      cb.addEventListener('change', applyFilters);
+    });
+
+    // Initial call
+    applyFilters();
+  </script>
+
+  <!-- popupform logic for adding data -->
+
+  <script>
+  let formShown = false;
+
+  document.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (!formShown) {
+        document.getElementById('popupForm').classList.remove('hidden');
+        formShown = true;
+      }
+    });
+  });
+
+  // Close popup logic
+  document.getElementById('closePopup').addEventListener('click', () => {
+    document.getElementById('popupForm').classList.add('hidden');
+  });
+
+  // Optionally handle form submission
+  document.getElementById('studentForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    // alert('Form submitted!'); // Replace with your submission logic
+    document.getElementById('popupForm').classList.add('hidden');
+  });
+</script>
+<script>
+  const form = document.getElementById('studentForm');
+  const popupForm = document.getElementById('popupForm');
+  const thankYouPopup = document.getElementById('thankYouPopup');
+  const closePopup = document.getElementById('closePopup');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent actual form submission
+
+    // Close the form popup
+    popupForm.classList.add('hidden');
+
+    // Show the thank you popup
+    thankYouPopup.classList.remove('hidden');
+    thankYouPopup.classList.add('opacity-100');
+
+    // Fade out after 3 seconds
+    setTimeout(() => {
+      thankYouPopup.classList.remove('opacity-100');
+      thankYouPopup.classList.add('opacity-0');
+
+      // Completely hide it after the transition
+      setTimeout(() => {
+        thankYouPopup.classList.add('hidden');
+        thankYouPopup.classList.remove('opacity-0');
+      }, 1000); // matches the transition duration
+    }, 2000);
+  });
+
+  closePopup.addEventListener('click', () => {
+    popupForm.classList.add('hidden');
+  });
+</script>
+ 
+<script>
+ 
+
+
+
+  // get data from popup form by js
+ document.querySelectorAll('.college-button').forEach(button => {
+    button.addEventListener('click', () => {
+      const popupId = button.getAttribute('id');
+      const content = popupContents[popupId];
+      if (content) {
+        document.getElementById('collegeInfoContent').innerHTML = content;
+        document.getElementById('collegeInfoPopup').classList.remove('hidden');
+      }
+    });
+  });
+
+  // Close college info popup
+  document.getElementById('closeCollegeInfo').addEventListener('click', () => {
+    document.getElementById('collegeInfoPopup').classList.add('hidden');
+  });
+
+  function applyFilters() {
+  const maxBudget = parseInt(document.getElementById('budgetRange').value);
+  const selectedDurations = Array.from(document.querySelectorAll('.durationCheckbox:checked')).map(cb => cb.value);
+  const selectedCities = Array.from(document.querySelectorAll('.cityCheckbox:checked')).map(cb => cb.value);
+  const buttons = document.querySelectorAll('.college-button');
+  let visibleCount = 0;
+
+  buttons.forEach(button => {
+    const card = button.querySelector('.college-card');
+    const fee = parseInt(card.dataset.fee);
+    const city = card.dataset.city;
+    const duration = card.dataset.duration;
+
+    const matchBudget = fee <= maxBudget;
+    const matchCity = selectedCities.length === 0 || selectedCities.includes(city);
+    const matchDuration = selectedDurations.length === 0 || selectedDurations.includes(duration);
+
+    if (matchBudget && matchCity && matchDuration) {
+      button.classList.remove('hidden');
+      visibleCount++;
+    } else {
+      button.classList.add('hidden');
+    }
+  });
+
+  document.getElementById('noResultsMessage').classList.toggle('hidden', visibleCount !== 0);
+}
+
+  //let formShown = false;
+  let lastCollegeKey = '';
+
+  document.querySelectorAll(".college-button").forEach(button => {
+    button.addEventListener("click", () => {
+      const key = button.getAttribute("data-popup-id");
+      if (!formShown) {
+        formShown = true;
+        document.getElementById("popupForm").classList.remove("hidden");
+        lastCollegeKey = key;
+      } else {
+        showCollegeInfo(popupContents[key]);
+      }
+    });
+  });
+
+  document.getElementById("studentForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    document.getElementById("popupForm").classList.add("hidden");
+    document.getElementById("thankYouPopup").classList.remove("hidden");
+    setTimeout(() => {
+      document.getElementById("thankYouPopup").classList.add("hidden");
+      showCollegeInfo(popupContents[lastCollegeKey]);
+    }, 2000);
+  });
+
+  function showCollegeInfo(content) {
+    const infoBox = document.getElementById("collegeInfoContent");
+    infoBox.innerHTML = content;
+    document.getElementById("collegeInfoPopup").classList.remove("hidden");
+  }
+
+  document.getElementById("closePopup").addEventListener("click", () => {
+    document.getElementById("popupForm").classList.add("hidden");
+  });
+
+  document.getElementById("closeCollegeInfo").addEventListener("click", () => {
+    document.getElementById("collegeInfoPopup").classList.add("hidden");
+  });
+</script>
+
+</body>
+
+</html>

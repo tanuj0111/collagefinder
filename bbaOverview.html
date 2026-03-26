@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BBA Overview - OnetickCourses</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body style="background-color: white;" class="bg-gray-100 text-gray-800">
+
+  <!-- Navbar -->
+  <nav style="background-color:#4D2C5E;" class="bg-white shadow border-b sticky top-0 z-50 flex items-center justify-between px-4 py-3">
+    <ul class="flex space-x-8 text-sm font-medium">
+      <li><a href="bbaOverview.html" class="text-white">Overview</a></li>
+      <li><a href="bbaSyllabus.html" class="text-white">Syllabus</a></li>
+      <li><a href="bbacolege.html" class="text-white">BCA Colleges</a></li>
+    </ul>
+    <!-- Hamburger icon -->
+    <button onclick="toggleSidebar()" class="text-white focus:outline-none">
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Sidebar -->
+  <div id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-white text-white transform -translate-x-full transition-transform duration-300 z-50 shadow-lg">
+    <div class="p-6">
+      <h2 class="text-2xl font-bold mb-6" style="color: #4D2C5E;">Menu</h2>
+      <ul class="space-y-4">
+        <li><a href="a-main.html" class="hover:underline" style="color: #4D2C5E;">Home</a></li>
+        <li><a href="bbaOverview.html" class="hover:underline" style="color: #4D2C5E;">Overview</a></li>
+        <li><a href="bbaSyllabus.html" class="hover:underline" style="color: #4D2C5E;">Syllabus</a></li>
+        <li><a href="bbacolege.html" class="hover:underline" style="color: #4D2C5E;">BCA Colleges</a></li>
+      </ul>
+      <button onclick="toggleSidebar()" class="mt-8 px-4 py-2 bg-pink-500 rounded hover:bg-pink-600 transition" style="background-color: #4D2C5E;">Close</button>
+    </div>
+  </div>
+
+  <!-- JavaScript to toggle sidebar -->
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('-translate-x-full');
+    }
+  </script>
+<!-- Content -->
+<section style="background-color:white;" class="py-16 px-6 bg-white">
+  <div class="max-w-6xl mx-auto text-center">
+    <h1 class="text-4xl font-bold mb-10">
+      📘
+      <span style="color:#FFC90E ;font-family: centaur;font-size: 7vh;">B</span><span
+        style="color:#4D2C5E ;font-family: centaur;font-size: 7vh;">achelor of </span>
+      <span style="color:#FFC90E ;font-family: centaur;font-size: 7vh;">Business</span><span
+        style="color:#4D2C5E ;font-family: centaur;font-size: 7vh;"> Administration </span>
+      <span style="color:#FFC90E ;font-family: centaur;font-size: 7vh;">(B</span><span
+        style="color:#4D2C5E ;font-family: centaur;font-size: 7vh;">BA)</span>
+    </h1>
+
+    <div class="flex flex-col md:flex-row gap-8 text-left">
+
+      <!-- Left Box (BBA Overview) -->
+      <div class="md:w-1/2 bg-white shadow-lg rounded-xl p-6">
+        <img src="mtechbg.jpg" alt="BBA Background"
+          class="absolute inset-0 w-full h-full object-cover rounded-[50px] opacity-20 z-3" />
+        <p class="text-lg text-b"
+          style="color: #4D2C5E;font-weight: 500;font-family: Georgia, 'Times New Roman', Times, serif;">
+          <strong>📘 BBA Overview</strong><br><br>
+          The Bachelor of Business Administration (BBA) is a 3-year undergraduate degree that provides students with a strong foundation in business management, entrepreneurship, and leadership skills. It covers subjects like marketing, finance, HR, and operations.
+          <br><br>
+          <strong>⏳ Duration and Eligibility</strong><br>
+          Duration: 3 years (6 semesters)<br>
+          Eligibility: 10+2 in any stream from a recognized board<br>
+          Admission: Based on merit or entrance exams conducted by universities or colleges
+          <br><br>
+        </p>
+      </div>
+
+      <!-- Right Box (BBA Future Scope) -->
+      <div class="md:w-1/2 bg-white shadow-lg rounded-xl p-6">
+        <p class="text-lg text-b"
+          style="color: #4D2C5E;font-weight: 500;font-family: Georgia, 'Times New Roman', Times, serif;">
+          <strong>🚀 Future Scope</strong><br><br>
+          BBA graduates can pursue careers in marketing, finance, sales, human resources, and consulting. Many find entry-level managerial roles in both public and private sectors.<br><br>
+          It also lays a strong foundation for higher education like MBA or specialized programs in finance, international business, or digital marketing.<br><br>
+          The BBA program equips students with practical knowledge and soft skills required in the corporate world.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+  <!-- Footer -->
+  <footer style="background-color: #4D2C5E" class="bg-indigo-900 text-white text-center p-4 mt-10">
+    <p>&copy; 2025 OnetickCourses. All rights reserved.</p>
+  </footer>
+</body>
+
+</html>
