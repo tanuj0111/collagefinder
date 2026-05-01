@@ -1,4 +1,4 @@
-﻿# CollegeFinder🎓
+﻿# CollegeFinder 🎓
 
 A comprehensive educational web platform that helps students find information about various undergraduate and postgraduate courses, colleges, and career paths in India.
 
